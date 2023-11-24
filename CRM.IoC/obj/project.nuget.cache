@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "dgSpecHash": "g8Nkg4WHTXT5k0A6khO4zfn3lZX4Toz1EQaCv94mPjbp6sjbMekoIaAmjgmwgYxbC8ZNkH7+5lFsmC7eEqQfrQ==",
+  "success": false,
+  "projectFilePath": "E:\\CRM_AZURE\\CRM.IoC\\CRM.IoC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Data\\CRM.Data.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Data\\CRM.Data.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Application\\CRM.Application.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Application\\CRM.Application.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Domain\\CRM.Domain.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Domain\\CRM.Domain.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

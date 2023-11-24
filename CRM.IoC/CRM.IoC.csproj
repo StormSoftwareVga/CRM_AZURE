@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <BaseOutputPath>bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VariacaoDoAtivo.Application\CRM.Application.csproj" />
+    <ProjectReference Include="..\VariacaoDoAtivo.Data\CRM.Data.csproj" />
+    <ProjectReference Include="..\VariacaoDoAtivo.Domain\CRM.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

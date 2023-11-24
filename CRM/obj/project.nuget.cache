@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "dgSpecHash": "/vFOMb3UavYMZ40x3EIBXsTkrePPUIg12GEVYI02mkj5HKiPj7gpdwoiFnSsvWknts8XsqwVO9AEpW8QL1/MdA==",
+  "success": false,
+  "projectFilePath": "E:\\CRM_AZURE\\CRM\\CRM.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Palmuti\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\3.1.24\\microsoft.aspnetcore.nodeservices.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.aspnetcore.spaservices\\3.1.24\\microsoft.aspnetcore.spaservices.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.aspnetcore.spaservices.extensions\\3.1.24\\microsoft.aspnetcore.spaservices.extensions.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.32\\microsoft.entityframeworkcore.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.32\\microsoft.entityframeworkcore.abstractions.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.32\\microsoft.entityframeworkcore.analyzers.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.32\\microsoft.entityframeworkcore.design.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.32\\microsoft.entityframeworkcore.relational.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.32\\microsoft.extensions.caching.abstractions.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.32\\microsoft.extensions.caching.memory.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.32\\microsoft.extensions.configuration.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.32\\microsoft.extensions.configuration.abstractions.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.32\\microsoft.extensions.configuration.binder.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.32\\microsoft.extensions.dependencyinjection.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\3.1.24\\microsoft.extensions.fileproviders.abstractions.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\3.1.24\\microsoft.extensions.fileproviders.physical.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\3.1.24\\microsoft.extensions.filesystemglobbing.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.logging\\3.1.32\\microsoft.extensions.logging.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.32\\microsoft.extensions.logging.abstractions.3.1.32.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.logging.configuration\\3.1.24\\microsoft.extensions.logging.configuration.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.logging.console\\3.1.24\\microsoft.extensions.logging.console.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\3.1.24\\microsoft.extensions.options.configurationextensions.3.1.24.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Swagger\\CRM.Swagger.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Swagger\\CRM.Swagger.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.IoC\\CRM.IoC.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.IoC\\CRM.IoC.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Data\\CRM.Data.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Data\\CRM.Data.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Application\\CRM.Application.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Application\\CRM.Application.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Auth\\CRM.Auth.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Auth\\CRM.Auth.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

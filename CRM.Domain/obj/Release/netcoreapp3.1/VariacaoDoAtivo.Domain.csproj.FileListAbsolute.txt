@@ -1,0 +1,13 @@
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.deps.json
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\bin\Release\netcoreapp3.1\SS.Tecnologia.YahooFinance.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\bin\Release\netcoreapp3.1\SS.Tecnologia.YahooFinance.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.csproj.AssemblyReference.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.AssemblyInfoInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.AssemblyInfo.cs
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.csproj.CoreCompileInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.csproj.CopyComplete
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Domain\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.pdb

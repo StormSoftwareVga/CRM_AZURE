@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "dgSpecHash": "Fb8L/zfMQjyps0vFddcpm4NW3VKn/8dSNhPrQkq4/VZnh9LwKvc1Z7VjJQkB+q9MZGfrfFMuxsg28hpBnfmnyQ==",
+  "success": false,
+  "projectFilePath": "E:\\CRM_AZURE\\CRM.Application\\CRM.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Palmuti\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Auth\\CRM.Auth.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Auth\\CRM.Auth.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Não é possível encontrar o projeto 'E:\\CRM_AZURE\\VariacaoDoAtivo.Domain\\CRM.Domain.csproj'. Verifique se a referência do projeto é válida e se o arquivo de projeto existe.",
+      "libraryId": "E:\\CRM_AZURE\\VariacaoDoAtivo.Domain\\CRM.Domain.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

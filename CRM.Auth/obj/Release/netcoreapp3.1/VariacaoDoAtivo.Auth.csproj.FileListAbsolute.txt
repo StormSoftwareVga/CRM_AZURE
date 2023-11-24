@@ -1,0 +1,15 @@
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.deps.json
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\SS.Tecnologia.YahooFinance.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Domain.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\bin\Release\netcoreapp3.1\SS.Tecnologia.YahooFinance.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.csproj.AssemblyReference.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.GeneratedMSBuildEditorConfig.editorconfig
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.AssemblyInfoInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.AssemblyInfo.cs
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.csproj.CoreCompileInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.csproj.CopyComplete
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Auth\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Auth.pdb

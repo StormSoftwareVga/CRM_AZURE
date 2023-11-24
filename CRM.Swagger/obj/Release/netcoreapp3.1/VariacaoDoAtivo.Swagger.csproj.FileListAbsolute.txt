@@ -1,0 +1,10 @@
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.deps.json
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\bin\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.pdb
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.csproj.AssemblyReference.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.GeneratedMSBuildEditorConfig.editorconfig
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.AssemblyInfoInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.AssemblyInfo.cs
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.csproj.CoreCompileInputs.cache
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.dll
+E:\StormSoftware\VariacaoDoAtivo_3.1\VariacaoDoAtivo.Swagger\obj\Release\netcoreapp3.1\VariacaoDoAtivo.Swagger.pdb
