@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VariacaoDoAtivo.Data;
+using CRM.Data;
 
-namespace VariacaoDoAtivo.Data.Migrations
+namespace CRM.Data.Migrations
 {
-    [DbContext(typeof(VariacaoDbContext))]
-    partial class VariacaoDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CRMDbContext))]
+    partial class CRMDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace VariacaoDoAtivo.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VariacaoDoAtivo.Domain.Usuario", b =>
+            modelBuilder.Entity("CRM.Domain.Usuario", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace VariacaoDoAtivo.Data.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("VariacaoDoAtivo.Domain.Variacao", b =>
+            modelBuilder.Entity("CRM.Domain.Variacao", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

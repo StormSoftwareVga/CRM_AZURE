@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using VariacaoDoAtivo.Application;
-using VariacaoDoAtivo.Data;
-using VariacaoDoAtivo.Domain;
+using CRM.Application;
+using CRM.Data;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.IoC
+namespace CRM.IoC
 {
     public static class NativeInjector
     {

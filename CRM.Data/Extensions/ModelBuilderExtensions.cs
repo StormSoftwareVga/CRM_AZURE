@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
     public static class ModelBuilderExtensions
     {

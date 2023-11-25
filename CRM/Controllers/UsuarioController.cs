@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using VariacaoDoAtivo.Application;
-using VariacaoDoAtivo.Auth.Services;
+using CRM.Application;
+using CRM.Auth.Services;
 
-namespace VariacaoDoAtivo.Controllers
+namespace CRM.Controllers
 {
     [Route("api/[controller]"), ApiController, Authorize]
     public class UsuarioController : ControllerBase
@@ -29,7 +29,16 @@ namespace VariacaoDoAtivo.Controllers
             return Ok(this.usuarioService.GetById(id));
         }
 
-        [HttpPost, AllowAnonymous]
+        //[HttpPost, AllowAnonymous]
+        //public IActionResult Post(UsuarioViewModel usuarioViewModel)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+
+        //    return Ok(this.usuarioService.Post(usuarioViewModel));
+        //}
+
+        [HttpPost]
         public IActionResult Post(UsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)
@@ -56,6 +65,12 @@ namespace VariacaoDoAtivo.Controllers
             var _idUsuario = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
             return Ok(this.usuarioService.Delete(_idUsuario));
+        }
+
+        [HttpDelete("{userId}")]
+        public IActionResult Delete(string userId)
+        {
+            return Ok(this.usuarioService.Delete(userId));
         }
     }
 }

@@ -21,3 +21,13 @@ E:\crm_storm\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.AssemblyInfo.cs
 E:\crm_storm\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.csproj.CoreCompileInputs.cache
 E:\crm_storm\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.dll
 E:\crm_storm\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.pdb
+E:\CRM_AZURE\CRM.Swagger\bin\Debug\netcoreapp3.1\CRM.Swagger.deps.json
+E:\CRM_AZURE\CRM.Swagger\bin\Debug\netcoreapp3.1\CRM.Swagger.dll
+E:\CRM_AZURE\CRM.Swagger\bin\Debug\netcoreapp3.1\CRM.Swagger.pdb
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.csproj.AssemblyReference.cache
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.GeneratedMSBuildEditorConfig.editorconfig
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.AssemblyInfoInputs.cache
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.AssemblyInfo.cs
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.csproj.CoreCompileInputs.cache
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.dll
+E:\CRM_AZURE\CRM.Swagger\obj\Debug\netcoreapp3.1\CRM.Swagger.pdb

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     //public class VariacaoRequestViewModel
     //{

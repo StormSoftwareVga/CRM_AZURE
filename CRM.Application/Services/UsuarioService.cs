@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using VariacaoDoAtivo.Auth.Services;
-using VariacaoDoAtivo.Domain;
+using CRM.Auth.Services;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     public class UsuarioService : IUsuarioService
     {
@@ -49,6 +49,8 @@ namespace VariacaoDoAtivo.Application
 
             var _usuario = mapper.Map<Usuario>(usuarioViewModel);
 
+            _usuario.DataInclusao = DateTime.Now;
+
             this.usuarioRepository.Create(_usuario);
 
             return true;
@@ -65,6 +67,8 @@ namespace VariacaoDoAtivo.Application
                 throw new Exception("Usuário não encontrado");
 
             _usuario = mapper.Map<Usuario>(usuarioViewModel);
+
+            _usuario.DataAlteracao = DateTime.Now;
 
             this.usuarioRepository.Update(_usuario);
 

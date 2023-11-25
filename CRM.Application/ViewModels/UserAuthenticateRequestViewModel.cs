@@ -1,4 +1,4 @@
-﻿namespace VariacaoDoAtivo.Application
+﻿namespace CRM.Application
 {
     public class UserAuthenticateRequestViewModel
     {

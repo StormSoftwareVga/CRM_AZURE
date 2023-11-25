@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
     public class UsuarioRepository : Repository<Usuario>, IUsuarioRepository
     {
-        public UsuarioRepository(VariacaoDbContext context) : base(context)
+        public UsuarioRepository(CRMDbContext context) : base(context)
         {
 
         }

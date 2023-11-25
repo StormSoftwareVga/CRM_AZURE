@@ -4,10 +4,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
-using VariacaoDoAtivo.Auth.Models;
-using VariacaoDoAtivo.Domain;
+using CRM.Auth.Models;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Auth.Services
+namespace CRM.Auth.Services
 {
     public static class TokenService
     {

@@ -19,8 +19,12 @@ export class UsuarioDataService {
         return this.http.put(this.module, dados);
     }
 
-    delete() {
+    deleteMe() {
         return this.http.delete(this.module);
+    }
+
+    delete(userId) {
+        return this.http.delete(this.module + '/' + userId);
     }
 
     autenticar(dados) {

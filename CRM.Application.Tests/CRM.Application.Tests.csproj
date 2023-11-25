@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VariacaoDoAtivo.Application\CRM.Application.csproj" />
+    <ProjectReference Include="..\CRM.Application\CRM.Application.csproj" />
   </ItemGroup>
 
 </Project>

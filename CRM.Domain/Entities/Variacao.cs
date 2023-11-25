@@ -1,4 +1,4 @@
-﻿namespace VariacaoDoAtivo.Domain
+﻿namespace CRM.Domain
 {
     //public class Variacao : Entity
     //{

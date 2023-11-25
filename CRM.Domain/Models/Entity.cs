@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace VariacaoDoAtivo.Domain
+namespace CRM.Domain
 {
     public class Entity
     {

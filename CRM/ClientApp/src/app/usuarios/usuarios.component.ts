@@ -48,6 +48,41 @@ export class UsuariosComponent implements OnInit {
         this.usuario = usuario;
     }
 
+    autenticar() {
+        this.usuarioDataService.autenticar(this.usuarioLogin).subscribe((d: any) => {
+            if (d.usuario) {
+                this.toastr.success('Usuário autenticado com sucesso!', 'Sucesso');
+                localStorage.setItem('token_usuario', JSON.stringify(d));
+                this.get();
+                this.getDadosUsuario();
+            }
+            else {
+                this.toastr.warning('Usuário inválido.');
+            }
+        }, erro => {
+            //console.log(erro.error);
+            //this.toastr.warning('erro interno do sistema');
+            if (erro.error) {
+                const errorMessage = erro.error.substring(18, erro.error.indexOf('\n'))
+                if (errorMessage && errorMessage.length > 1) {
+                    console.log(errorMessage);
+                    this.toastr.warning(errorMessage);
+                } else {
+                    console.log(erro.error);
+                    this.toastr.warning(erro.error);
+                }
+            } else {
+                console.error(erro); // Se não houver uma propriedade 'error', log o objeto completo
+                this.toastr.warning('Erro interno do sistema');
+            }
+        })
+    }
+
+    getDadosUsuario() {
+        this.usuarioLogado = JSON.parse(localStorage.getItem('token_usuario'))
+        this.isAuthenticate = this.usuarioLogado != null;
+    }
+
     post() {
         this.usuarioDataService.post(this.usuario).subscribe(d => {
             if (d == true) {
@@ -59,8 +94,22 @@ export class UsuariosComponent implements OnInit {
                 alert('Erro ao cadastrar usuário');
             }
         }, erro => {
-            console.log(erro);
-            alert('erro interno do sistema');
+            //console.log(erro);
+            //alert('erro interno do sistema');
+            debugger;
+            if (erro.error) {
+                const errorMessage = erro.error.substring(18, erro.error.indexOf('\n'))
+                if (errorMessage && errorMessage.length > 1) {
+                    console.log(errorMessage);
+                    this.toastr.warning(errorMessage);
+                } else {
+                    console.log(erro.error);
+                    this.toastr.warning(erro.error);
+                }
+            } else {
+                console.error(erro); // Se não houver uma propriedade 'error', log o objeto completo
+                this.toastr.warning('Erro interno do sistema');
+            }
         })
     }
 
@@ -75,13 +124,26 @@ export class UsuariosComponent implements OnInit {
                 this.toastr.warning('Erro ao atualizar usuário');
             }
         }, erro => {
-            console.log(erro);
-            this.toastr.warning('erro interno do sistema');
+            //console.log(erro);
+            //this.toastr.warning('erro interno do sistema');
+            if (erro.error) {
+                const errorMessage = erro.error.substring(18, erro.error.indexOf('\n'))
+                if (errorMessage && errorMessage.length > 1) {
+                    console.log(errorMessage);
+                    this.toastr.warning(errorMessage);
+                } else {
+                    console.log(erro.error);
+                    this.toastr.warning(erro.error);
+                }
+            } else {
+                console.error(erro); // Se não houver uma propriedade 'error', log o objeto completo
+                this.toastr.warning('Erro interno do sistema');
+            }
         })
     }
 
-    delete() {
-        this.usuarioDataService.delete().subscribe(d => {
+    delete(usuario) {
+        this.usuarioDataService.delete(usuario.id).subscribe(d => {
             if (d == true) {
                 this.toastr.success('Usuário excluido com sucesso');
                 this.get();
@@ -91,30 +153,21 @@ export class UsuariosComponent implements OnInit {
                 this.toastr.warning('Erro ao excluir usuário');
             }
         }, erro => {
-            console.log(erro);
-            this.toastr.warning('erro interno do sistema');
-        })
-    }
-
-    autenticar() {
-        this.usuarioDataService.autenticar(this.usuarioLogin).subscribe((d: any) => {
-            if (d.usuario) {
-                this.toastr.success('Usuário autenticado com sucesso!', 'Sucesso');
-                localStorage.setItem('token_usuario', JSON.stringify(d));
-                this.get();
-                this.getDadosUsuario();
+            //console.log(erro);
+            //this.toastr.warning('erro interno do sistema');
+            if (erro.error) {
+                const errorMessage = erro.error.substring(18, erro.error.indexOf('\n'))
+                if (errorMessage && errorMessage.length > 1) {
+                    console.log(errorMessage);
+                    this.toastr.warning(errorMessage);
+                } else {
+                    console.log(erro.error);
+                    this.toastr.warning(erro.error);
+                }
+            } else {
+                console.error(erro); // Se não houver uma propriedade 'error', log o objeto completo
+                this.toastr.warning('Erro interno do sistema');
             }
-            else {
-                this.toastr.warning('Usuário inválido.');
-            }
-        }, erro => {
-            console.log(erro);
-            this.toastr.warning('erro interno do sistema');
         })
-    }
-
-    getDadosUsuario() {
-        this.usuarioLogado = JSON.parse(localStorage.getItem('token_usuario'))
-        this.isAuthenticate = this.usuarioLogado != null;
     }
 }

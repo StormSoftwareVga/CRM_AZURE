@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
     //public class VariacaoMap : IEntityTypeConfiguration<Variacao>
     //{

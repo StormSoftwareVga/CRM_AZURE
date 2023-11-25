@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VariacaoDoAtivo.Domain
+namespace CRM.Domain
 {
     //public interface IVariacaoBusiness
     //{

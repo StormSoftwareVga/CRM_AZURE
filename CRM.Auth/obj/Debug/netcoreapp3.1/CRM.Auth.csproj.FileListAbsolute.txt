@@ -18,3 +18,16 @@ E:\crm_storm\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.AssemblyInfo.cs
 E:\crm_storm\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.csproj.CoreCompileInputs.cache
 E:\crm_storm\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.dll
 E:\crm_storm\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.pdb
+E:\CRM_AZURE\CRM.Auth\bin\Debug\netcoreapp3.1\CRM.Auth.deps.json
+E:\CRM_AZURE\CRM.Auth\bin\Debug\netcoreapp3.1\CRM.Auth.dll
+E:\CRM_AZURE\CRM.Auth\bin\Debug\netcoreapp3.1\CRM.Auth.pdb
+E:\CRM_AZURE\CRM.Auth\bin\Debug\netcoreapp3.1\CRM.Domain.dll
+E:\CRM_AZURE\CRM.Auth\bin\Debug\netcoreapp3.1\CRM.Domain.pdb
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.csproj.AssemblyReference.cache
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.GeneratedMSBuildEditorConfig.editorconfig
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.AssemblyInfoInputs.cache
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.AssemblyInfo.cs
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.csproj.CoreCompileInputs.cache
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.csproj.CopyComplete
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.dll
+E:\CRM_AZURE\CRM.Auth\obj\Debug\netcoreapp3.1\CRM.Auth.pdb

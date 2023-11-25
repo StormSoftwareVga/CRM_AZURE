@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using VariacaoDoAtivo.Application;
+using CRM.Application;
 
-namespace VariacaoDoAtivo.Controllers
+namespace CRM.Controllers
 {
     //[Route("api/[controller]"), ApiController]
     //public class VariacaoController : ControllerBase

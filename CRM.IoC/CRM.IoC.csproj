@@ -10,9 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VariacaoDoAtivo.Application\CRM.Application.csproj" />
-    <ProjectReference Include="..\VariacaoDoAtivo.Data\CRM.Data.csproj" />
-    <ProjectReference Include="..\VariacaoDoAtivo.Domain\CRM.Domain.csproj" />
+    <ProjectReference Include="..\CRM.Application\CRM.Application.csproj" />
+    <ProjectReference Include="..\CRM.Data\CRM.Data.csproj" />
+    <ProjectReference Include="..\CRM.Domain\CRM.Domain.csproj" />
   </ItemGroup>
 
 </Project>

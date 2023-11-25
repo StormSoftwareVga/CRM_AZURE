@@ -5,15 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         #region 'Properties'
 
-        protected readonly VariacaoDbContext _context;
+        protected readonly CRMDbContext _context;
 
         protected DbSet<TEntity> DbSet
         {
@@ -25,7 +25,7 @@ namespace VariacaoDoAtivo.Data
 
         #endregion
 
-        public Repository(VariacaoDbContext context)
+        public Repository(CRMDbContext context)
         {
             _context = context;
         }

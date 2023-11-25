@@ -8,13 +8,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using VariacaoDoAtivo.Application;
-using VariacaoDoAtivo.Auth.Models;
-using VariacaoDoAtivo.Data;
-using VariacaoDoAtivo.IoC;
-using VariacaoDoAtivo.Swagger;
+using CRM.Application;
+using CRM.Auth.Models;
+using CRM.Data;
+using CRM.IoC;
+using CRM.Swagger;
 
-namespace VariacaoDoAtivo
+namespace CRM
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace VariacaoDoAtivo
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<VariacaoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FinanceiroDB")).EnableSensitiveDataLogging());
+            services.AddDbContext<CRMDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CrmDB")).EnableSensitiveDataLogging());
 
             NativeInjector.RegisterServices(services);
 

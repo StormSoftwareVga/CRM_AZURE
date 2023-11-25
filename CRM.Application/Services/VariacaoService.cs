@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     //public class VariacaoService : IVariacaoService
     //{

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
-    public class VariacaoDbContext : DbContext
+    public class CRMDbContext : DbContext
     {
-        public VariacaoDbContext(DbContextOptions<VariacaoDbContext> option) : base(option)
+        public CRMDbContext(DbContextOptions<CRMDbContext> option) : base(option)
         {
 
         }

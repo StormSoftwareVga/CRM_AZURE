@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     public class EntityViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     public class AutoMapperSetup : Profile
     {

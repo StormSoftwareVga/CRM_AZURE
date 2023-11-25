@@ -3,10 +3,10 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 using Xunit;
 
-namespace VariacaoDoAtivo.Application.Tests
+namespace CRM.Application.Tests
 {
     public class UsuarioServiceTests
     {

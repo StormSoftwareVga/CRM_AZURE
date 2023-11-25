@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Xunit;
 
-namespace VariacaoDoAtivo.Application.Tests
+namespace CRM.Application.Tests
 {
     //public class VariacaoServiceTests
     //{

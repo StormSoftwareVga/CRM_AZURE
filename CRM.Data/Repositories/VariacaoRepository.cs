@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using VariacaoDoAtivo.Domain;
+using CRM.Domain;
 
-namespace VariacaoDoAtivo.Data
+namespace CRM.Data
 {
     //public class VariacaoRepository : Repository<Variacao>, IVariacaoRepository
     //{
-    //    public VariacaoRepository(VariacaoDbContext context) : base(context)
+    //    public VariacaoRepository(CRMDbContext context) : base(context)
     //    {
 
     //    }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     public class UsuarioViewModel : EntityViewModel
     {

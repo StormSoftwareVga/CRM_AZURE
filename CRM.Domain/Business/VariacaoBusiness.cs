@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace VariacaoDoAtivo.Domain.Business
+namespace CRM.Domain.Business
 {
     /// <summary>
     /// Classe responsável por formatar os resultados após obter os dados da API

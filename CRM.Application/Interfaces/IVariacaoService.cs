@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VariacaoDoAtivo.Application
+namespace CRM.Application
 {
     //public interface IVariacaoService
     //{

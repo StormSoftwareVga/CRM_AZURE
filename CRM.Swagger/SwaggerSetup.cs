@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 
-namespace VariacaoDoAtivo.Swagger
+namespace CRM.Swagger
 {
     public static class SwaggerSetup
     {
@@ -14,14 +14,14 @@ namespace VariacaoDoAtivo.Swagger
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Variação do Ativo .NET Core",
+                    Title = "Swagger CRM - Storm",
                     Version = "v1",
-                    Description = "Projeto desenvolvido com .NET Core e Angular a titulo de portfólio.",
+                    Description = "Documentação do projeto CRM - Storm Software.",
                     Contact = new OpenApiContact
                     {
-                        Name = "Pedro Henrique Palmuti Freitas",
-                        Email = "palmutip@hotmail.com",
-                        Url = new Uri("https://palmutip.github.io")
+                        Name = "Storm Software",
+                        Email = "desenvolvimento@stormsoftware.com.br",
+                        Url = new Uri("https://stormsoftware.com.br")
                     }
                 });
 

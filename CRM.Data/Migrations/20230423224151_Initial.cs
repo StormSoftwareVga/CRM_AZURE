@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace VariacaoDoAtivo.Data.Migrations
+namespace CRM.Data.Migrations
 {
     public partial class Initial : Migration
     {
