@@ -24,6 +24,7 @@ Bin/
 obj/
 Obj/
 #Aplicativos/
+DllSys/
 packages/
 
 # Visual Studio 2015 cache/options directory
