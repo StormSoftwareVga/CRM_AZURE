@@ -1,0 +1,35 @@
+name: Realiza o Build da solução e executa os testes unitários
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout no codigo
+      uses: actions/checkout@v2
+
+    - name: Restaurar Pacotes do NuGet
+      run: nuget restore CrmSln.sln -Source "https://api.nuget.org/v3/index.json"
+
+    - name: Instalar Visual Studio Test Platform
+      run: choco install visualstudio2019testagent --package-parameters "--all --includeOptional"
+
+    - name: Adiciona msbuild ao PATH (variaveis de ambiente do windows)
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build da solucao
+      run: msbuild CrmSln.sln /p:Configuration=Debug
+
+    - name: Encontrar e Executar Testes Unitários [MSTest]
+      run: |
+        $vstestExe = Get-ChildItem -Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\TestAgent\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" -ErrorAction SilentlyContinue
+        if ($vstestExe) {
+          & $vstestExe.FullName "CRM.Application.Tests\bin\Debug\CRM.Application.Tests.dll"
+        } else {
+          Write-Host "vstest.console.exe not found."
+        }

@@ -8274,7 +8274,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Work\\.nuget\\packages\\": {},
+    "C:\\Users\\Palmuti\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
@@ -8285,7 +8285,7 @@
       "projectUniqueName": "E:\\CRM_AZURE\\CRM.Application\\CRM.Application.csproj",
       "projectName": "CRM.Application",
       "projectPath": "E:\\CRM_AZURE\\CRM.Application\\CRM.Application.csproj",
-      "packagesPath": "C:\\Users\\Work\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Palmuti\\.nuget\\packages\\",
       "outputPath": "E:\\CRM_AZURE\\CRM.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -8294,7 +8294,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Palmuti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -8305,8 +8305,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/SinckSolucoes/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {

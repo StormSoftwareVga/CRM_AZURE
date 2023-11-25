@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "c6Jg1gVD7i17b9jW7JgsE9lUEpkCP8Lh3D4ephaNnqtMNOIRkZP0O0nFh7o1Oa0EoX9egW7+xsH3xW4YbPd45g==",
+  "dgSpecHash": "emjW5zj9MyNn3oSz5HyhxFFo9lTniKucSJ2pH/HJrZ+Uj9LUNszMz2k6Vo5FpzWYK18MbpE8hnaWDvXFVlRHQw==",
   "success": true,
   "projectFilePath": "E:\\CRM_AZURE\\CRM.Swagger\\CRM.Swagger.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Work\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\Work\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
-    "C:\\Users\\Work\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
-    "C:\\Users\\Work\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    "C:\\Users\\Palmuti\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Palmuti\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
   ],
   "logs": []
 }
