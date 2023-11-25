@@ -49,7 +49,7 @@ namespace CRM.Application
 
             var _usuario = mapper.Map<Usuario>(usuarioViewModel);
 
-            _usuario.DataInclusao = DateTime.Now;
+            //_usuario.DataInclusao = DateTime.Now;
 
             this.usuarioRepository.Create(_usuario);
 
