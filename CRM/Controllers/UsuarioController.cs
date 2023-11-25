@@ -29,16 +29,8 @@ namespace CRM.Controllers
             return Ok(this.usuarioService.GetById(id));
         }
 
-        //[HttpPost, AllowAnonymous]
-        //public IActionResult Post(UsuarioViewModel usuarioViewModel)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-
-        //    return Ok(this.usuarioService.Post(usuarioViewModel));
-        //}
-
-        [HttpPost]
+        //Descomente o AllowAnonymous Para criar o primeiro usuario e testar
+        [HttpPost/*, AllowAnonymous*/]
         public IActionResult Post(UsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)

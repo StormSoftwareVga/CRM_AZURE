@@ -9,11 +9,6 @@
     </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Update="ClientApp\src\app\_data-services\variacao.data-service.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Update="ClientApp\src\app\_data-services\usuario.data-service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

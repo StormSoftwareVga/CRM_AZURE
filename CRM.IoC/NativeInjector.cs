@@ -11,25 +11,15 @@ namespace CRM.IoC
         {
             #region Services
 
-            //services.AddScoped<IVariacaoService, VariacaoService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
-            //services.AddScoped<IYahooFinanceService, YahooFinanceService>();
 
             #endregion
 
             #region Repositories
 
-            //services.AddScoped<IVariacaoRepository, VariacaoRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             #endregion
-
-            #region Business
-
-            //services.AddScoped<IVariacaoBusiness, VariacaoBusiness>();
-
-            #endregion
-
         }
     }
 }
