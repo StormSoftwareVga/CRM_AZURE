@@ -16,6 +16,11 @@ jobs:
     - name: Restaurar Pacotes do NuGet
       run: nuget restore CrmSln.sln -Source "https://api.nuget.org/v3/index.json"
 
+    - name: Configurar o ambiente do .NET Core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '3.1' 
+
     - name: Instalar Visual Studio Test Platform
       run: choco install visualstudio2019testagent --package-parameters "--all --includeOptional"
 
