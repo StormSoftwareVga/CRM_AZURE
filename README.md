@@ -24,6 +24,8 @@ Para redirecionar o console para o local correto.
 dotnet ef database update --project CRM.Data -c CRMDbContext --startup-project CRM
 ```
 
+3. Toda vez que o repositório no github recebe um commit na branc develop ou main, o Azure Repo tambem é atualizado: https://dev.azure.com/desenvolvimento0610/_git/CRM_ANGULAR 
+
 ## Publicar o Projeto
 
 A seguir um passo a passo para publicação da solução utilizando o Visual Studio 2022 no idioma pt-br.
