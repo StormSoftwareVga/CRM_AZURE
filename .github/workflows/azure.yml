@@ -18,9 +18,8 @@ jobs:
       run: |
         git config --global user.email "pedro.palmuti@stormsoftware.com.br"
         git config --global user.name "PalmutiStorm"
-        git remote add azure-repos https://desenvolvimento0610:${{ secrets.SYNCGITHUB }}@dev.azure.com/desenvolvimento0610/CRM/_git/CRM
+        git remote add azure-repos https://${{ secrets.SYNCGITHUB }}@dev.azure.com/desenvolvimento0610/CRM/_git/CRM
 
     - name: Sincronizar com o Azure Repos
       run: |
-        
-        git push azure-repos --all --force
+        git push azure-repos --all --force --no-thin
