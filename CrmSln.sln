@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storm.Tecnologia.Gov", "Sto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storm.Tecnologia.Commom", "Storm.Tecnologia.Commom\Storm.Tecnologia.Commom.csproj", "{785F43A7-72F0-4E9E-BC7C-4B9D6B454973}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiSpa", "ApiSpa\ApiSpa.csproj", "{C5AE9913-5884-4EDD-B197-113947F78064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{785F43A7-72F0-4E9E-BC7C-4B9D6B454973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{785F43A7-72F0-4E9E-BC7C-4B9D6B454973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{785F43A7-72F0-4E9E-BC7C-4B9D6B454973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5AE9913-5884-4EDD-B197-113947F78064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5AE9913-5884-4EDD-B197-113947F78064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5AE9913-5884-4EDD-B197-113947F78064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5AE9913-5884-4EDD-B197-113947F78064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{275D5B3B-B924-40C3-B8C4-1925365B4EFF} = {5037952C-42E5-4612-8E6F-452ED6E373DC}
 		{A09B8F25-4890-460D-8755-D4E81F3CC8F0} = {43EC7BB4-9497-4198-8CE1-6A67E73F0982}
 		{785F43A7-72F0-4E9E-BC7C-4B9D6B454973} = {43EC7BB4-9497-4198-8CE1-6A67E73F0982}
+		{C5AE9913-5884-4EDD-B197-113947F78064} = {26877883-D8E6-4902-86CF-21164DC92D7E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A26576C-98A7-4C14-9761-8A7A31FD31F5}

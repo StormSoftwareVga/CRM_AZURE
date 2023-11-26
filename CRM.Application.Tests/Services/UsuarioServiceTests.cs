@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CRM.Domain;
 using Xunit;
+using CRM.Application.ViewModels.User;
 
 namespace CRM.Application.Tests
 {
@@ -16,13 +17,7 @@ namespace CRM.Application.Tests
         {
             usuarioService = new UsuarioService(new Mock<IUsuarioRepository>().Object, new Mock<IMapper>().Object);
         }
-
-        [Fact]
-        public void Post_EnviaIDValido()
-        {
-            var exception = Assert.Throws<Exception>(() => usuarioService.Post(new UsuarioViewModel { Id = Guid.NewGuid() }));
-            Assert.Equal("ID do usuário deve ser vazio!", exception.Message);
-        }
+         
 
         [Fact]
         public void GetById_EnviandoGuidVazio()
@@ -55,7 +50,7 @@ namespace CRM.Application.Tests
         [Fact]
         public void Post_EnviandoObjetoValido()
         {
-            var result = usuarioService.Post(new UsuarioViewModel { Nome = "Pedro Palmuti", Email = "palmutip@hotmail.com", Senha = "Teste123456789" });
+            var result = usuarioService.Post(new CreateUsuarioViewModel { Nome = "Pedro Palmuti", Email = "palmutip@hotmail.com", Senha = "Teste123456789" });
             Assert.True(result);
         }
 
@@ -90,7 +85,7 @@ namespace CRM.Application.Tests
         [Fact]
         public void Post_EnviandoObjetoInvalido()
         {
-            var exception = Assert.Throws<ValidationException>(() => usuarioService.Post(new UsuarioViewModel { Nome = "Pedro Palmuti" }));
+            var exception = Assert.Throws<ValidationException>(() => usuarioService.Post(new CreateUsuarioViewModel { Nome = "Pedro Palmuti" }));
             Assert.Equal("The Email field is required.", exception.Message);
         }
 
