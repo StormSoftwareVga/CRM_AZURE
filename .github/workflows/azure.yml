@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   sync-with-azure:
@@ -18,7 +19,7 @@ jobs:
         # Extrair informações do repositório atual
         repo_name=${GITHUB_REPOSITORY#*/}
         repo_owner=${GITHUB_REPOSITORY%/*}
-        
+
         echo $repo_name
         echo $repo_owner
         
