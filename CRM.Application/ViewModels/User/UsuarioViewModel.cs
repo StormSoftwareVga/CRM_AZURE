@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CRM.Application
+namespace CRM.Application.ViewModels.User
 {
     public class UsuarioViewModel : EntityViewModel
     {

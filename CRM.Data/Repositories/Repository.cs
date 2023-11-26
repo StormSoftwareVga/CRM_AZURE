@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using CRM.Domain;
+using Microsoft.Win32;
 
 namespace CRM.Data
 {
@@ -36,6 +37,12 @@ namespace CRM.Data
         {
             try
             {
+                (model as Entity).DataInclusao = DateTime.UtcNow;
+                (model as Entity).DataAlteracao = DateTime.UtcNow;
+
+                if ((model as Entity).Id == Guid.Empty)
+                    (model as Entity).Id = Guid.NewGuid();
+
                 DbSet.Add(model);
                 Save();
                 return model;
@@ -51,6 +58,14 @@ namespace CRM.Data
         {
             try
             {
+                models.ForEach(model => { 
+                    (model as Entity).DataInclusao = DateTime.UtcNow;
+                    (model as Entity).DataAlteracao = DateTime.UtcNow;
+
+                    if( (model as Entity).Id == Guid.Empty)
+                        (model as Entity).Id = Guid.NewGuid();
+
+                }); 
                 DbSet.AddRange(models);
                 Save();
                 return models;
@@ -65,6 +80,7 @@ namespace CRM.Data
         {
             try
             {
+                (model as Entity).DataAlteracao = DateTime.UtcNow;
                 EntityEntry<TEntity> entry = NewMethod(model);
 
                 DbSet.Attach(model);
@@ -91,9 +107,11 @@ namespace CRM.Data
             {
                 foreach (TEntity register in models)
                 {
+                    (register as Entity).DataAlteracao = DateTime.UtcNow;
                     EntityEntry<TEntity> entry = _context.Entry(register);
                     DbSet.Attach(register);
                     entry.State = EntityState.Modified;
+
                 }
 
                 return Save() > 0;
@@ -110,8 +128,9 @@ namespace CRM.Data
             try
             {
                 if (model is Entity)
-                {
+                { 
                     (model as Entity).IsDeleted = true;
+                    (model as Entity).DataAlteracao = DateTime.UtcNow;
                     EntityEntry<TEntity> _entry = _context.Entry(model);
 
                     DbSet.Attach(model);
@@ -137,8 +156,9 @@ namespace CRM.Data
         {
             try
             {
-                TEntity model = DbSet.Find(Keys);
+                TEntity model = DbSet.Find(Keys); 
                 return (model != null) && Delete(model);
+                (model as Entity).DataAlteracao = DateTime.UtcNow;
             }
             catch (Exception)
             {
@@ -151,8 +171,7 @@ namespace CRM.Data
         {
             try
             {
-                TEntity model = DbSet.Where<TEntity>(where).FirstOrDefault<TEntity>();
-
+                TEntity model = DbSet.Where<TEntity>(where).FirstOrDefault<TEntity>(); 
                 return (model != null) && Delete(model);
             }
             catch (Exception)

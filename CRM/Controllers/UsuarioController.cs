@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using CRM.Application;
 using CRM.Auth.Services;
+using CRM.Application.ViewModels.User;
 
 namespace CRM.Controllers
 {
@@ -31,7 +32,7 @@ namespace CRM.Controllers
 
         //Descomente o AllowAnonymous Para criar o primeiro usuario e testar
         [HttpPost/*, AllowAnonymous*/]
-        public IActionResult Post(UsuarioViewModel usuarioViewModel)
+        public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

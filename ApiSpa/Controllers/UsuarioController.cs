@@ -1,4 +1,5 @@
 ﻿using CRM.Application;
+using CRM.Application.ViewModels.User;
 using CRM.Auth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace ApiSpa.Controllers
 
         //Descomente o AllowAnonymous Para criar o primeiro usuario e testar
         [HttpPost/*, AllowAnonymous*/]
-        public IActionResult Post(UsuarioViewModel usuarioViewModel)
+        public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -41,7 +42,12 @@ namespace ApiSpa.Controllers
         [HttpPost("autenticate"), AllowAnonymous]
         public IActionResult Autenticar(UserAuthenticateRequestViewModel usuarioViewModel)
         {
-            return Ok(this.usuarioService.Authenticate(usuarioViewModel));
+            try { 
+                return Ok(this.usuarioService.Authenticate(usuarioViewModel));
+            }catch(Exception ex)
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpPut]
@@ -52,10 +58,11 @@ namespace ApiSpa.Controllers
 
         [HttpDelete]
         public IActionResult Delete()
-        {
+        { 
             var _idUsuario = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
             return Ok(this.usuarioService.Delete(_idUsuario));
+
         }
 
         [HttpDelete("{userId}")]
