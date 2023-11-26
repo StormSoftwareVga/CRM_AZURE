@@ -2,8 +2,9 @@ name: Sincronizar com Azure Repos
 
 on:
   push:
-    branches-ignore:
-      - '*'
+    branches:
+      - main
+      - develop
 
 jobs:
   sync-with-azure:
