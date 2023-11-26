@@ -2,9 +2,8 @@ name: Sincronizar com Azure Repos
 
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches-ignore:
+      - '*'
 
 jobs:
   sync-with-azure:
@@ -14,22 +13,12 @@ jobs:
     - name: Checkout no código
       uses: actions/checkout@v2
 
+    - name: Configurar Git para o Azure Repos
+      run: |
+        git config --global user.email "pedro.palmuti@stormsoftware.com.br"
+        git config --global user.name "PalmutiStorm"
+        git remote add azure-repos https://PalmutiStorm@dev.azure.com/desenvolvimento0610/CRM/_git/CRM
+
     - name: Sincronizar com o Azure Repos
       run: |
-        # Extrair informações do repositório atual
-        repo_name=${GITHUB_REPOSITORY#*/}
-        repo_owner=${GITHUB_REPOSITORY%/*}
-
-        echo $repo_name
-        echo $repo_owner
-        
-        # Configurar variáveis
-        azure_repo_url="https://dev.azure.com/desenvolvimento0610/CRM/_apis/git/repositories/CRM?api-version=7.1"
-        azure_personal_access_token="${{ secrets.SYNCGITHUB }}"
-        
-        # Fazer chamada à API para criar o repositório no Azure Repos
-        response=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic $azure_personal_access_token" -d "{\"name\": \"$repo_name\", \"project\": { \"name\": \"$repo_owner\" }}" $azure_repo_url)
-
-        echo $response
-
-        # Adicionar mais chamadas para lidar com a sincronização de branches, etc.
+        git push azure-repos --all
