@@ -30,7 +30,7 @@ namespace ApiSpa.Controllers
         }
 
         //Descomente o AllowAnonymous Para criar o primeiro usuario e testar
-        [HttpPost/*, AllowAnonymous*/]
+        [HttpPost, AllowAnonymous]
         public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
         {
             if (!ModelState.IsValid)

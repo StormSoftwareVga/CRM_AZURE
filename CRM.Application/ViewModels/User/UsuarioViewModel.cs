@@ -2,7 +2,7 @@
 
 namespace CRM.Application.ViewModels.User
 {
-    public class UsuarioViewModel : EntityViewModel
+    public class UsuarioViewModel : EntityIdViewModel
     {
         [Required]
         public string Nome { get; set; }

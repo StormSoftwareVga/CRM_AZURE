@@ -46,11 +46,18 @@ namespace CRM.Application
         { 
             Validator.ValidateObject(usuarioViewModel, new ValidationContext(usuarioViewModel), true);
 
-            var _usuario = mapper.Map<Usuario>(usuarioViewModel);  
+            var _usuario = mapper.Map<Usuario>(usuarioViewModel);
 
-            this.usuarioRepository.Create(_usuario);
+            var usuarioJaExiste = this.usuarioRepository.Find(x => x.Email.ToLower() == usuarioViewModel.Email.ToLower());
+            if(usuarioJaExiste == null)
+            {
+                this.usuarioRepository.Create(_usuario);
 
-            return true;
+                return true;
+            }
+
+            return false;
+
         }
 
         public bool Put(UsuarioViewModel usuarioViewModel)
