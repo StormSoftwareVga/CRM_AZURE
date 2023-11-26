@@ -20,6 +20,10 @@ jobs:
         git config --global user.name "PalmutiStorm"
         git remote add azure-repos https://${{ secrets.SYNCGITHUB }}@dev.azure.com/desenvolvimento0610/CRM/_git/CRM
 
+    - name: Atualizar repositório do Azure DevOps
+      run: |
+        git pull azure-repos develop
+
     - name: Sincronizar com o Azure Repos
       run: |
         git push azure-repos --all --force --no-thin
