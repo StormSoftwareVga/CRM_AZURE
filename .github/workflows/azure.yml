@@ -22,5 +22,4 @@ jobs:
 
     - name: Sincronizar com o Azure Repos
       run: |
-        git pull azure-repos develop --allow-unrelated-histories
-        git push azure-repos --all
+        git push azure-repos --all --force
