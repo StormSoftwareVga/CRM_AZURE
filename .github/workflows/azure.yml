@@ -21,7 +21,7 @@ jobs:
         repo_owner=${GITHUB_REPOSITORY%/*}
         
         # Configurar variáveis
-        azure_repo_url="https://dev.azure.com/desenvolvimento0610/CRM/_apis/git/repositories/CRM?api-version=7.1"
+        azure_repo_url="https://dev.azure.com/desenvolvimento0610/_git/CRM?api-version=7.1"
         azure_personal_access_token="${{ secrets.SYNCGITHUB }}"
         
         # Fazer chamada à API para criar o repositório no Azure Repos
