@@ -1,0 +1,32 @@
+name: Sincronizar com Azure Repos
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  sync-with-azure:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout no código
+      uses: actions/checkout@v2
+
+    - name: Sincronizar com o Azure Repos
+      run: |
+        # Extrair informações do repositório atual
+        repo_name=${GITHUB_REPOSITORY#*/}
+        repo_owner=${GITHUB_REPOSITORY%/*}
+        
+        # Configurar variáveis
+        azure_repo_url="https://dev.azure.com/desenvolvimento0610/CRM/_apis/git/repositories/CRM?api-version=7.1"
+        azure_personal_access_token="${{ secrets.SYNCGITHUB }}"
+        
+        # Fazer chamada à API para criar o repositório no Azure Repos
+        response=$(curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic $azure_personal_access_token" -d "{\"name\": \"$repo_name\", \"project\": { \"name\": \"$repo_owner\" }}" $azure_repo_url)
+
+        echo $response
+
+        # Adicionar mais chamadas para lidar com a sincronização de branches, etc.
