@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Sincronizar com o Azure Repos
-      uses: actions/setup-azure-devops-extension@v0
+      uses: actions/setup-azure-devops-extension@v4
       with:
         azure-devops-url: 'https://dev.azure.com/desenvolvimento0610/CRM/_apis/git/repositories/CRM?api-version=7.1'
         azure-devops-token: '${{ secrets.SYNCGITHUB }}'
