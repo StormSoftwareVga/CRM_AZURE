@@ -22,6 +22,18 @@ builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
 
 builder.Services.AddSwaggerConfiguration();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder
+            .WithOrigins("http://localhost:4200")  // Adicione aqui o seu domínio Angular
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var chave = Encoding.ASCII.GetBytes(Settings.Secret);
 
 builder.Services.AddAuthentication(options =>
@@ -53,7 +65,10 @@ else
     app.UseHsts();
 }
 
+
 app.UseSwaggerConfiguration();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 
