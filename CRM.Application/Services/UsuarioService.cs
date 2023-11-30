@@ -66,11 +66,12 @@ namespace CRM.Application
                 throw new Exception("ID do usuário é inválido!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioViewModel.Id && !x.IsDeleted);
-
+            
             if (null == _usuario)
                 throw new Exception("Usuário não encontrado");
 
-            _usuario = mapper.Map<Usuario>(usuarioViewModel);
+            _usuario.Nome = usuarioViewModel.Nome;
+            _usuario.Email = usuarioViewModel.Email;
 
             _usuario.DataAlteracao = DateTime.Now;
 
