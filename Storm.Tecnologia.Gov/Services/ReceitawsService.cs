@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Storm.Tecnologia.Commom;
 using Storm.Tecnologia.Gov.Interfaces;
 using Storm.Tecnologia.Gov.Models;
 using System;
@@ -16,7 +17,7 @@ namespace Storm.Tecnologia.Gov.Services
         private const string url = "http://receitaws.com.br/v1/cnpj/";
         public async Task<CnpjModel> ConsultaCnpj(string cnpj)
         {
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            cnpj = cnpj.NormalizeDocument();
             return await ChamarAPI<CnpjModel>(url, cnpj);
         }
     }

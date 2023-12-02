@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Storm.Tecnologia.Commom
 {
@@ -74,6 +75,16 @@ namespace Storm.Tecnologia.Commom
         public static bool IsNullObject(this object value)
         {
             return value == null ? true : false;
+        }
+
+        /// <summary>
+        /// Extensão de string para validar documentos. Remove todos os caracteres não numéricos da string.
+        /// </summary>
+        /// <param name="documento"></param>
+        /// <returns></returns>
+        public static string NormalizeDocument(this string documento)
+        {
+            return Regex.Replace(documento, "[^0-9]", "");
         }
     }
 }
