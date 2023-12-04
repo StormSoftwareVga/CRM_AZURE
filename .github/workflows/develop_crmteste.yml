@@ -45,8 +45,7 @@ jobs:
           name: .net-app
 
       - name: Apply Database Migrations
-        run: |
-          cd ${{env.DOTNET_ROOT}}/myapp
+        run: | 
           dotnet ef database update
         if: success()
 
