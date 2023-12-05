@@ -28,9 +28,12 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin", builder =>
     {
         builder
-            .WithOrigins("http://localhost:4200")  // Adicione aqui o seu domínio Angular
+            .SetIsOriginAllowed(_ => true)
             .AllowAnyMethod()
             .AllowAnyHeader();
+
+
+        //.WithOrigins("http://localhost:4200")  // Adicione aqui o seu domínio Angular
     });
 });
 
