@@ -25,7 +25,7 @@ namespace CRM.Swagger
                     }
                 });
 
-                var xmlPath = Path.Combine("wwwroot", "api-documentation.xml");
+                var xmlPath =  "api-documentation.xml";
                 c.IncludeXmlComments(xmlPath);
             });
         }

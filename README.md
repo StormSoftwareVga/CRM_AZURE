@@ -24,6 +24,8 @@ Para redirecionar o console para o local correto.
 dotnet ef database update --project CRM.Data -c CRMDbContext --startup-project CRM
 ```
 
+3. Toda vez que o repositório no github recebe um commit na branc develop ou main, o Azure Repo tambem é atualizado: https://dev.azure.com/desenvolvimento0610/_git/CRM_ANGULAR 
+
 ## Publicar o Projeto
 
 A seguir um passo a passo para publicação da solução utilizando o Visual Studio 2022 no idioma pt-br.
@@ -35,3 +37,46 @@ A seguir um passo a passo para publicação da solução utilizando o Visual Stu
 5. Agora o perfil está preparado para publicação. O usuári pode clicar no botão 'Publicar' que está na janela atual. 
 6. Após publicar, o usuário deverá copiar o conteúdo que se encontra dentro do diretório que foi definido no etapa 2 deste passo-a-passo e colar no diretório onde foi criado o Site do IIS (na etapa 1).
 7. Para acesso às rotas configuradas no projeto, o usuário deve acessar o endereço que foi configurado no IIS + o sufixo '/swagger/index.html'. Exemplo de acesso: http://localhost:7530/swagger/index.html
+
+
+## Novos Services
+
+Passo a passo para criar um novo serviço para uma nova entidade (Nova tabela no banco de dados).
+Neste exemplo a palavra 'Entidade' deverá ser substituido pelo nome da tabela no seu banco de dados.
+
+1 - Projeto Application:
+    - Criar ViewModel herdando de : EntityIdViewModel (Atente-se para as Datta Annottations como [Required])
+    - Criar IEntidadeSerice herdando de : IBaseService<Entidade,EntidadeViewModel>
+    - Criar EntidadeService herdando de : iEntidadeService e implemente a interface. Tambem ja inclua o repositorio no inicio da classe com private readonly IEntidadeRepository entidadeRepository;
+2 - Projeto Domain
+    - Crie IEntidadeRepository herdando de : IRepository<Entidade>
+3 - Projeo Data
+    - Crie EntidadeRepository herdando de  : Repository<Entidade>, IEntidadeRepository
+4 - De volta ao projeto Application
+    - private readonly IMapper mapper; se precisar
+    - ctor tab para criar o construtor e insira as dependencias para injeção. Exemplo
+    - Crie a configuração para o Automapper em AutoMapperSetup.cs
+5 - Projeto IoC
+    - Cria a injeção de dependencia para o repositório e o servico criados. Ex: services.AddScoped<IEntidadeService, EntidadeService>(); services.AddScoped<IEntidadeRepository, EntidadeRepository>();
+
+Modelo de envio de requisição
+{
+  "nome": "Pedro",
+  "tipo": 2,
+  "email": "user@example.com",
+  "telefone": "3599999999",
+  "documentoTipo": 3,
+  "documento": "35.999.633/0001-30"
+}
+
+## Testes
+
+Ao cadastrar uma nova pessoa, o sistema ja roda a regra de negocio para consultar o endereço e cadastrar no BD se ja nao existir. Exemplo de consulta:
+
+SELECT A.NOME Pessoa, A.Documento CNPJ, A.Email, C.Nome Pais, DE.Nome Regiao, D.Nome Estado, E.Nome Cidade, B.Logradouro, B.Numero
+from Pessoas A 
+JOIN PessoaEnderecos B ON B.PessoaId = A.Id
+JOIN Paises C ON C.Id = B.PaisId
+JOIN Estados D ON D.Id = B.EstadoId
+JOIN Regioes DE ON DE.Id = D.RegiaoId
+JOIN Municipios E ON E.Id = B.MunicipioId

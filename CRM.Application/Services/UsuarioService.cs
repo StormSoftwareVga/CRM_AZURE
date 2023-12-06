@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CRM.Auth.Services;
 using CRM.Domain;
+using CRM.Application.ViewModels.User;
+using BCrypt.Net;
 
 namespace CRM.Application
 {
@@ -18,16 +20,16 @@ namespace CRM.Application
             this.mapper = mapper;
         }
 
-        public List<UsuarioViewModel> Get()
+        public List<GetUsuarioViewModel> Get()
         {
             IEnumerable<Usuario> _variacoes = this.usuarioRepository.GetAll();
 
-            List<UsuarioViewModel> _usuarioViewModel = mapper.Map<List<UsuarioViewModel>>(_variacoes);
+            var _usuarioViewModel = mapper.Map<List<GetUsuarioViewModel>>(_variacoes);
 
             return _usuarioViewModel;
         }
 
-        public UsuarioViewModel GetById(string id)
+        public GetUsuarioViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))
                 throw new Exception("ID do usuário é inválido!");
@@ -37,23 +39,25 @@ namespace CRM.Application
             if (null == _usuario)
                 throw new Exception("Usuário não encontrado");
 
-            return mapper.Map<UsuarioViewModel>(_usuario);
+            return mapper.Map<GetUsuarioViewModel>(_usuario);
         }
 
-        public bool Post(UsuarioViewModel usuarioViewModel)
-        {
-            if (usuarioViewModel.Id != Guid.Empty)
-                throw new Exception("ID do usuário deve ser vazio!");
-
+        public bool Post(CreateUsuarioViewModel usuarioViewModel)
+        { 
             Validator.ValidateObject(usuarioViewModel, new ValidationContext(usuarioViewModel), true);
 
             var _usuario = mapper.Map<Usuario>(usuarioViewModel);
 
-            //_usuario.DataInclusao = DateTime.Now;
+            var usuarioJaExiste = this.usuarioRepository.Find(x => x.Email.ToLower() == usuarioViewModel.Email.ToLower());
+            if(usuarioJaExiste == null)
+            {
+                this.usuarioRepository.Create(_usuario);
 
-            this.usuarioRepository.Create(_usuario);
+                return true;
+            }
 
-            return true;
+            return false;
+
         }
 
         public bool Put(UsuarioViewModel usuarioViewModel)
@@ -62,11 +66,12 @@ namespace CRM.Application
                 throw new Exception("ID do usuário é inválido!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioViewModel.Id && !x.IsDeleted);
-
+            
             if (null == _usuario)
                 throw new Exception("Usuário não encontrado");
 
-            _usuario = mapper.Map<Usuario>(usuarioViewModel);
+            _usuario.Nome = usuarioViewModel.Nome;
+            _usuario.Email = usuarioViewModel.Email;
 
             _usuario.DataAlteracao = DateTime.Now;
 
@@ -94,10 +99,15 @@ namespace CRM.Application
             if (string.IsNullOrEmpty(usuario.Email) || string.IsNullOrEmpty(usuario.Senha))
                 throw new Exception("Os campos E-mail e Senha são obrigatórios!");
 
-            Usuario _usuario = this.usuarioRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == usuario.Email.ToLower() && x.Senha == usuario.Senha);
+            Usuario _usuario = this.usuarioRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == usuario.Email.ToLower());
 
             if (null == _usuario)
-                throw new Exception("Usuário não encontrado");
+                throw new Exception("Usuário ou senha Invalido");
+
+            
+            if ( _usuario.SenhaValida(usuario.Senha) == false)
+                throw new Exception("Usuário ou senha Invalido");
+
 
             return new UserAuthenticateResponseViewModel(mapper.Map<UsuarioViewModel>(_usuario), TokenService.GenerateToken(_usuario));
         }

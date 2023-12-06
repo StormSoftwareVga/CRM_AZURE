@@ -1,4 +1,6 @@
-﻿namespace CRM.Application
+﻿using CRM.Application.ViewModels.User;
+
+namespace CRM.Application
 {
     public class UserAuthenticateResponseViewModel
     {
