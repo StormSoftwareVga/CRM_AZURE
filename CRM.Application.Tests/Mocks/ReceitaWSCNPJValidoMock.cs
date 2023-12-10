@@ -21,6 +21,7 @@ namespace CRM.Application.Tests.Mocks
                 bairro = "Centro",
                 logradouro = "Rua numero 1",
                 numero = "1234",
+                status = "OK"
             };
 
             return Task.FromResult(dadosCNPJ);
