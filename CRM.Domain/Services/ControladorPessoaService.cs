@@ -44,6 +44,9 @@ namespace CRM.Domain.Services
                     {
                         var dadosCNPJ = await receitawsService.ConsultaCnpj(pessoa.Documento);
 
+                        if (dadosCNPJ.status.Equals("ERROR"))
+                            throw new Exception(dadosCNPJ.message);
+
                         var pais = new Pais() { Nome = "Brasil" };
 
                         var estadoLocalidade = await localidadesService.GetEstado(dadosCNPJ.uf);
@@ -53,6 +56,30 @@ namespace CRM.Domain.Services
                         var estado = new Estado() { Nome = estadoLocalidade.nome, Pais = pais, Regiao = regiao, Sigla = estadoLocalidade.sigla };
 
                         var municipio = new Municipio() { Nome = dadosCNPJ.municipio, Estado = estado };
+
+                        var paisExistente = paisRepository.Query(x => !x.IsDeleted && x.Nome == pais.Nome);
+                        if (paisExistente.Count() == 0)
+                            paisRepository.Create(pais);
+                        else
+                            pais = paisExistente.FirstOrDefault();
+
+                        var regiaoExistente = regiaoRepository.Query(x => !x.IsDeleted && x.Nome == regiao.Nome && x.Sigla == regiao.Sigla && x.Pais.Nome == regiao.Pais.Nome);
+                        if (regiaoExistente.Count() == 0)
+                            regiaoRepository.Create(regiao);
+                        else
+                            regiao = regiaoExistente.FirstOrDefault();
+
+                        var estadoExistente = estadoRepository.Query(x => !x.IsDeleted && x.Nome == estado.Nome && x.Sigla == estado.Sigla && x.Regiao.Nome == estado.Regiao.Nome && x.Pais.Nome == estado.Pais.Nome);
+                        if (estadoExistente.Count() == 0)
+                            estadoRepository.Create(estado);
+                        else
+                            estado = estadoExistente.FirstOrDefault();
+
+                        var municipioExistente = municipioRepository.Query(x => !x.IsDeleted && x.Nome == municipio.Nome && x.Estado.Sigla == municipio.Estado.Sigla);
+                        if (municipioExistente.Count() == 0)
+                            municipioRepository.Create(municipio);
+                        else
+                            municipio = municipioExistente.FirstOrDefault();
 
                         var pessoaEndereco = new PessoaEndereco()
                         {
@@ -65,18 +92,6 @@ namespace CRM.Domain.Services
                             Logradouro = dadosCNPJ.logradouro,
                             Numero = dadosCNPJ.numero
                         };
-
-                        if (paisRepository.Query(x => !x.IsDeleted && x.Nome == pais.Nome).Count() == 0)
-                            paisRepository.Create(pais);
-
-                        if (regiaoRepository.Query(x => !x.IsDeleted && x.Nome == regiao.Nome && x.Sigla == regiao.Sigla && x.Pais.Nome == regiao.Pais.Nome).Count() == 0)
-                            regiaoRepository.Create(regiao);
-
-                        if (estadoRepository.Query(x => !x.IsDeleted && x.Nome == estado.Nome && x.Sigla == estado.Sigla && x.Regiao.Nome == estado.Regiao.Nome && x.Pais.Nome == estado.Pais.Nome).Count() == 0)
-                            estadoRepository.Create(estado);
-
-                        if (municipioRepository.Query(x => !x.IsDeleted && x.Nome == municipio.Nome && x.Estado.Sigla == municipio.Estado.Sigla).Count() == 0)
-                            municipioRepository.Create(municipio);
 
                         if (pessoaEnderecoRepository.Query(x => !x.IsDeleted
                             && x.Pais.Nome == pessoaEndereco.Pais.Nome
