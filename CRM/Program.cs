@@ -1,9 +1,13 @@
 using CRM.Application;
+using CRM.Application.ViewModels.Response;
 using CRM.Auth.Models;
+using CRM.Configurations;
 using CRM.Data;
 using CRM.IoC;
+using CRM.Middlewares;
 using CRM.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -22,6 +26,7 @@ builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
 
 builder.Services.AddSwaggerConfiguration();
 
+builder.Services.AddApiBehaviorSetup();
 
 builder.Services.AddCors(options =>
 {
@@ -38,7 +43,6 @@ builder.Services.AddCors(options =>
 });
 
 var chave = Encoding.ASCII.GetBytes(Settings.Secret);
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -58,15 +62,15 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseDeveloperExceptionPage();
+//}
+//else
+//{
+//    app.UseExceptionHandler("/Error");
+//    app.UseHsts();
+//}
 
 
 app.UseSwaggerConfiguration();
@@ -80,6 +84,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware(typeof(ErrorMiddleware));
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -87,20 +93,6 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller}/{action=Index}/{id?}");
 });
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-
-    try
-    {
-        var dbContext = services.GetRequiredService<CRMDbContext>();
-        dbContext.Database.Migrate();         
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while migrating or seeding the database.");
-    }
-}
+app.Services.AddDatabaseSetup();
 
 app.Run();

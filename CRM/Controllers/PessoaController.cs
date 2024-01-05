@@ -1,12 +1,14 @@
 ﻿using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.Pessoa;
+using CRM.Application.ViewModels.Response;
 using CRM.Domain;
+using CRM.Domain.Core.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRM.Controllers
 {
-    [Route("api/[controller]"), ApiController, Authorize]
+    [Route("api/[controller]"), ApiController]
     public class PessoaController : BaseController
     {
         private readonly IPessoaService pessoaService;
@@ -30,10 +32,7 @@ namespace CRM.Controllers
 
         [HttpPost, AllowAnonymous]
         public IActionResult Post(CreatePessoaViewModel pessoaViewModel)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
+        { 
             return Ok(this.pessoaService.Post(pessoaViewModel));
         }
 

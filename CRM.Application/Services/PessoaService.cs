@@ -3,6 +3,7 @@ using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.Pessoa;
 using CRM.Application.ViewModels.User;
 using CRM.Domain;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using Storm.Tecnologia.Commom;
 using System;
