@@ -52,7 +52,7 @@ namespace CRM.Application
 
         public bool Post(CreatePessoaViewModel viewModel)
         {
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel));
+           Validator.ValidateObject(viewModel, new ValidationContext(viewModel));
 
             if (null == this.pessoaRepository.Find(x => x.Documento.Replace(".", "").Replace("-", "").Replace("/", "") == viewModel.Documento.Replace(".", "").Replace("-", "").Replace("/", "")))
                 return controladorPessoaService.CadastrarNovoLead(mapper.Map<Pessoa>(viewModel)).Result;

@@ -29,42 +29,6 @@ namespace CRM
             return base.BadRequest(new ResponseViewModel(false, null, JsonSerializer.Serialize(error)));
         }
 
-        private IActionResult ProcessarRetorno(object dados = null, HttpStatusCode httpStatusCodeReponse = HttpStatusCode.OK, string erros = null)
-        {
-            switch (httpStatusCodeReponse)
-            {
-
-                case HttpStatusCode.Created:
-                    return BadRequest(new ResponseViewModel
-                    {
-                        Sucesso = false,
-                        Dados = JsonSerializer.Serialize(dados)
-
-                    });
-                    break;
-
-                case HttpStatusCode.BadRequest:
-                    return BadRequest(new ResponseViewModel
-                    {
-                        Sucesso = false,
-                        Dados = null,
-                        Erro = erros
-
-                    });
-
-                default :
-                    return BadRequest(new ResponseViewModel
-                    {
-                        Sucesso = false,
-                        Dados = JsonSerializer.Serialize(dados)
-
-                    });
-                    break;
-
-            }
-
-
-        }
         
     }
 

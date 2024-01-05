@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRM.Controllers
 {
-    [Route("api/[controller]"), ApiController]
+    [Route("api/[controller]"), ApiController, Authorize]
     public class PessoaController : BaseController
     {
         private readonly IPessoaService pessoaService;

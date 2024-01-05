@@ -48,6 +48,12 @@ namespace CRM.Middlewares
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
 
+            if(ex is System.ComponentModel.DataAnnotations.ValidationException)
+            {
+                response.Erro = ex.Message;
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
+
             var result = JsonSerializer.Serialize(response);
             context.Response.ContentType = "applicatin/json";
             return context.Response.WriteAsync(result);

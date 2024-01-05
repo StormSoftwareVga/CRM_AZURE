@@ -10,7 +10,7 @@ namespace CRM.Configurations
         {
             services.Configure<ApiBehaviorOptions>(options =>
             {
-                options.SuppressModelStateInvalidFilter = false;
+                options.SuppressModelStateInvalidFilter = true;
                 options.InvalidModelStateResponseFactory = context =>
                 {
                     var erros = context.ModelState.ToDictionary(
