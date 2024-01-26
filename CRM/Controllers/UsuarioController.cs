@@ -31,9 +31,8 @@ namespace ApiSpa.Controllers
         {
             return Ok(this.usuarioService.GetById(id));
         }
-
-        //Descomente o AllowAnonymous Para criar o primeiro usuario e testar
-        [HttpPost, AllowAnonymous]
+         
+        [HttpPost]
         public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
         {
             return Ok(this.usuarioService.Post(usuarioViewModel));

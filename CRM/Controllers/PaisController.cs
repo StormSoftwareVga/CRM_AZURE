@@ -15,13 +15,13 @@ namespace CRM.Controllers
         {
             this.paisService = paisService;
         }
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(paisService.GetAll());
         }
 
-        [HttpGet("{id}"), AllowAnonymous]
+        [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             return Ok(paisService.GetById(id.ToString()));

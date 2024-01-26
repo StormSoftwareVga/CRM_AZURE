@@ -15,13 +15,13 @@ namespace CRM.Controllers
         {
             this.municipioService = municipioService;
         }
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(municipioService.GetAll());
         }
 
-        [HttpGet("{id}"), AllowAnonymous]
+        [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             return Ok(municipioService.GetById(id.ToString()));

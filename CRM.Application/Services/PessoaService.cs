@@ -45,7 +45,7 @@ namespace CRM.Application
             Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
             if (null == _pessoa)
-                throw new Exception("Pessoa não encontrada");
+                throw new CRMNotificationException("Pessoa não encontrada");
 
             return mapper.Map<PessoaViewModel>(_pessoa);
         }
