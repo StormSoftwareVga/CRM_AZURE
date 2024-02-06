@@ -1,6 +1,8 @@
 ﻿using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.Pessoa;
+using CRM.Application.ViewModels.Response;
 using CRM.Domain;
+using CRM.Domain.Core.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +18,7 @@ namespace CRM.Controllers
             this.pessoaService = pessoaService;
         }
 
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(this.pessoaService.GetAll());
@@ -28,22 +30,19 @@ namespace CRM.Controllers
             return Ok(this.pessoaService.GetById(id));
         }
 
-        [HttpPost, AllowAnonymous]
+        [HttpPost]
         public IActionResult Post(CreatePessoaViewModel pessoaViewModel)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
+        { 
             return Ok(this.pessoaService.Post(pessoaViewModel));
         }
 
-        [HttpPut, AllowAnonymous]
+        [HttpPut]
         public IActionResult Put(PessoaViewModel pessoaViewModel)
         {
             return Ok(this.pessoaService.Put(pessoaViewModel));
         }
 
-        [HttpDelete("{id}"), AllowAnonymous]
+        [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
             return Ok(this.pessoaService.Delete(id));

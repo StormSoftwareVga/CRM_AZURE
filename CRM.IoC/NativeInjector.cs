@@ -9,6 +9,7 @@ using CRM.Data.Repositories;
 using CRM.Domain.Services;
 using Storm.Tecnologia.Gov.Interfaces;
 using Storm.Tecnologia.Gov.Services;
+using CRM.Domain.Core.Notifications;
 
 namespace CRM.IoC
 {
@@ -16,6 +17,10 @@ namespace CRM.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            #region DomainCore
+                services.AddSingleton<IDomainNotificationService, DomainNotificationService>();
+            #endregion
+
             #region Services
 
             services.AddScoped<IUsuarioService, UsuarioService>();

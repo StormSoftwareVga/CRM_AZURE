@@ -3,6 +3,7 @@ using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.Pessoa;
 using CRM.Application.ViewModels.User;
 using CRM.Domain;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using Storm.Tecnologia.Commom;
 using System;
@@ -44,14 +45,14 @@ namespace CRM.Application
             Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
             if (null == _pessoa)
-                throw new Exception("Pessoa não encontrada");
+                throw new CRMNotificationException("Pessoa não encontrada");
 
             return mapper.Map<PessoaViewModel>(_pessoa);
         }
 
         public bool Post(CreatePessoaViewModel viewModel)
         {
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel));
+           Validator.ValidateObject(viewModel, new ValidationContext(viewModel));
 
             if (null == this.pessoaRepository.Find(x => x.Documento.Replace(".", "").Replace("-", "").Replace("/", "") == viewModel.Documento.Replace(".", "").Replace("-", "").Replace("/", "")))
                 return controladorPessoaService.CadastrarNovoLead(mapper.Map<Pessoa>(viewModel)).Result;
