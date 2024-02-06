@@ -1,6 +1,6 @@
 ﻿using CRM.Application.Interfaces;
-using CRM.Application.ViewModels.Response;
-using CRM.Domain.Core.Notifications;
+using CRM.Application.ViewModels;
+using CRM.Application.ViewModels.Municipio;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +25,26 @@ namespace CRM.Controllers
         public IActionResult GetById(Guid id)
         {
             return Ok(municipioService.GetById(id.ToString()));
+        }
+        [HttpPost]
+        public IActionResult Post(MunicipioViewModel municipioViewModel)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(this.municipioService.Post(municipioViewModel));
+        }
+        [HttpPut]
+
+        public IActionResult Put(MunicipioViewModel municipioViewModel)
+        {
+            return Ok(this.municipioService.Put(municipioViewModel));
+        }
+        [HttpDelete("{id}")]
+
+        public IActionResult Delete(string id)
+        {
+            return Ok(this.municipioService.Delete(id));
         }
     }
 }

@@ -33,12 +33,12 @@ namespace CRM.Application
         public GetUsuarioViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new CRMNotificationException("ID do usuário é inválido!");
+                throw new Exception("ID do usuário é inválido!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
             if (null == _usuario)
-                throw new CRMNotificationException("Usuário não encontrado");
+                throw new Exception("Usuário não encontrado");
 
             return mapper.Map<GetUsuarioViewModel>(_usuario);
         }
@@ -64,12 +64,12 @@ namespace CRM.Application
         public bool Put(UsuarioViewModel usuarioViewModel)
         {
             if (usuarioViewModel.Id == Guid.Empty)
-                throw new CRMNotificationException("ID do usuário é inválido!");
+                throw new Exception("ID do usuário é inválido!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioViewModel.Id && !x.IsDeleted);
             
             if (null == _usuario)
-                throw new CRMNotificationException("Usuário não encontrado");
+                throw new Exception("Usuário não encontrado");
 
             _usuario.Nome = usuarioViewModel.Nome;
             _usuario.Email = usuarioViewModel.Email;
@@ -84,12 +84,12 @@ namespace CRM.Application
         public bool Delete(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new CRMNotificationException("ID do usuário é inválido!");
+                throw new Exception("ID do usuário é inválido!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
             if (null == _usuario)
-                throw new CRMNotificationException("Usuário não encontrado");
+                throw new Exception("Usuário não encontrado");
 
             return this.usuarioRepository.Delete(_usuario);
 
@@ -98,16 +98,16 @@ namespace CRM.Application
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel usuario)
         {
             if (string.IsNullOrEmpty(usuario.Email) || string.IsNullOrEmpty(usuario.Senha))
-                throw new CRMNotificationException("Os campos E-mail e Senha são obrigatórios!");
+                throw new Exception("Os campos E-mail e Senha são obrigatórios!");
 
             Usuario _usuario = this.usuarioRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == usuario.Email.ToLower());
 
             if (null == _usuario)
-                throw new CRMNotificationException("Usuário ou senha Invalido");
+                throw new Exception("Usuário ou senha Invalido");
 
             
             if ( _usuario.SenhaValida(usuario.Senha) == false)
-                throw new CRMNotificationException("Usuário ou senha Invalido");
+                throw new Exception("Usuário ou senha Invalido");
 
 
             return new UserAuthenticateResponseViewModel(mapper.Map<UsuarioViewModel>(_usuario), TokenService.GenerateToken(_usuario));
