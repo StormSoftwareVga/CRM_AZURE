@@ -8,6 +8,7 @@ namespace CRM.Domain.Interfaces
 {
     public interface IPaisRepository : IRepository<Pais>
     {
+        IEnumerable<Pais> GetAll();
 
     }
 }

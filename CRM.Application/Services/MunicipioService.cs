@@ -40,6 +40,7 @@ namespace CRM.Application.Services
         {
             IEnumerable<Municipio> _municipio = this.municipioRepository.Query(x => !x.IsDeleted);
 
+            
             var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
 
             return _municipioViewModel;
@@ -60,7 +61,7 @@ namespace CRM.Application.Services
 
         public bool Post(MunicipioViewModel viewModel)
         {
-            Validator.ValidateObject(municipioRepository, new ValidationContext(viewModel), true);
+            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
             var _municipio = mapper.Map<Municipio>(viewModel);
 

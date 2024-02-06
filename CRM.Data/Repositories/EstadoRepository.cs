@@ -13,5 +13,10 @@ namespace CRM.Data.Repositories
         public EstadoRepository(CRMDbContext context) : base(context)
         {
         }
+
+        public IEnumerable<Estado> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace CRM.Application.Services
 
         public bool Post(PaisViewModel viewModel)
         {
-            Validator.ValidateObject(paisRepository, new ValidationContext(viewModel), true);
+            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
             var _pais = mapper.Map<Pais>(viewModel);
 

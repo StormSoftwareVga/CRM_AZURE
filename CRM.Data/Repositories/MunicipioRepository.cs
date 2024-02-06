@@ -12,6 +12,11 @@ namespace CRM.Data.Repositories
     {
         public MunicipioRepository(CRMDbContext context) : base(context)
         {
+
+        }
+        public IEnumerable<Municipio> GetAll()
+        {
+            return Query(x => !x.IsDeleted);
         }
     }
 }

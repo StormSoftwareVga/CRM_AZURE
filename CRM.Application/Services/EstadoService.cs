@@ -60,7 +60,7 @@ namespace CRM.Application.Services
 
         public bool Post(EstadoViewModel viewModel)
         {
-            Validator.ValidateObject(estadoRepository, new ValidationContext(viewModel), true);
+            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
             var _estado = mapper.Map<Estado>(viewModel);
 

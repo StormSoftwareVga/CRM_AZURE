@@ -8,5 +8,6 @@ namespace CRM.Domain.Interfaces
 {
     public interface IMunicipioRepository : IRepository<Municipio>
     {
+        IEnumerable<Municipio> GetAll();
     }
 }

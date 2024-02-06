@@ -12,6 +12,11 @@ namespace CRM.Data.Repositories
     {
         public PaisRepository(CRMDbContext context) : base(context)
         {
+
+        }
+        public IEnumerable<Pais> GetAll()
+        {
+            return Query(x => !x.IsDeleted);
         }
     }
 }
