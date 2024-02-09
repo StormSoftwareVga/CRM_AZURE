@@ -4,6 +4,7 @@ using CRM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRM.Data.Migrations
 {
     [DbContext(typeof(CRMDbContext))]
-    partial class CRMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240208001004_InicioPermissoes")]
+    partial class InicioPermissoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,76 +23,6 @@ namespace CRM.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("CRM.Domain.Componente", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ComponenteId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataInclusao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(7603));
-
-                    b.Property<Guid>("Hash")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("JsonCampos")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComponenteId");
-
-                    b.ToTable("Componente");
-                });
-
-            modelBuilder.Entity("CRM.Domain.ComponenteEndPoint", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ComponenteID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataInclusao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(7871));
-
-                    b.Property<string>("EndPoint")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComponenteID");
-
-                    b.ToTable("ComponenteEndPoint");
-                });
 
             modelBuilder.Entity("CRM.Domain.Estado", b =>
                 {
@@ -104,7 +36,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8048));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(8618));
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -144,7 +76,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8184));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(8765));
 
                     b.Property<Guid?>("EstadoId")
                         .HasColumnType("uniqueidentifier");
@@ -176,7 +108,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8281));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(8867));
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -191,75 +123,6 @@ namespace CRM.Data.Migrations
                     b.ToTable("Paises");
                 });
 
-            modelBuilder.Entity("CRM.Domain.Papel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataInclusao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8425));
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<string>("Json")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("PapelId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PapelId");
-
-                    b.ToTable("Papel");
-                });
-
-            modelBuilder.Entity("CRM.Domain.PapelComponente", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ComponenteID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataInclusao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8576));
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<Guid>("PapelID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ComponenteID");
-
-                    b.HasIndex("PapelID");
-
-                    b.ToTable("PapelComponente");
-                });
-
             modelBuilder.Entity("CRM.Domain.Pessoa", b =>
                 {
                     b.Property<Guid>("Id")
@@ -272,7 +135,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8752));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(8988));
 
                     b.Property<string>("Documento")
                         .HasColumnType("nvarchar(max)");
@@ -320,7 +183,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8872));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(9089));
 
                     b.Property<Guid?>("EstadoId")
                         .HasColumnType("uniqueidentifier");
@@ -370,7 +233,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(8990));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(9239));
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -405,7 +268,7 @@ namespace CRM.Data.Migrations
                     b.Property<DateTime>("DataInclusao")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(9110));
+                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 10, 4, 26, DateTimeKind.Local).AddTicks(9342));
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -439,59 +302,6 @@ namespace CRM.Data.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("CRM.Domain.UsuarioPapel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DataInclusao")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 2, 7, 21, 16, 35, 989, DateTimeKind.Local).AddTicks(9232));
-
-                    b.Property<bool>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.Property<Guid>("PapelID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UsuarioID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PapelID");
-
-                    b.HasIndex("UsuarioID");
-
-                    b.ToTable("UsuarioPapel");
-                });
-
-            modelBuilder.Entity("CRM.Domain.Componente", b =>
-                {
-                    b.HasOne("CRM.Domain.Componente", null)
-                        .WithMany("Componentes")
-                        .HasForeignKey("ComponenteId");
-                });
-
-            modelBuilder.Entity("CRM.Domain.ComponenteEndPoint", b =>
-                {
-                    b.HasOne("CRM.Domain.Componente", "Componente")
-                        .WithMany("ComponenteEndPoints")
-                        .HasForeignKey("ComponenteID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_Componente_EndPoint");
-
-                    b.Navigation("Componente");
-                });
-
             modelBuilder.Entity("CRM.Domain.Estado", b =>
                 {
                     b.HasOne("CRM.Domain.Pais", "Pais")
@@ -514,33 +324,6 @@ namespace CRM.Data.Migrations
                         .HasForeignKey("EstadoId");
 
                     b.Navigation("Estado");
-                });
-
-            modelBuilder.Entity("CRM.Domain.Papel", b =>
-                {
-                    b.HasOne("CRM.Domain.Papel", null)
-                        .WithMany("Papeis")
-                        .HasForeignKey("PapelId");
-                });
-
-            modelBuilder.Entity("CRM.Domain.PapelComponente", b =>
-                {
-                    b.HasOne("CRM.Domain.Componente", "Componente")
-                        .WithMany()
-                        .HasForeignKey("ComponenteID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CRM.Domain.Papel", "Papel")
-                        .WithMany("PapelComponentes")
-                        .HasForeignKey("PapelID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_Papel_PapelComponentes");
-
-                    b.Navigation("Componente");
-
-                    b.Navigation("Papel");
                 });
 
             modelBuilder.Entity("CRM.Domain.PessoaEndereco", b =>
@@ -584,39 +367,6 @@ namespace CRM.Data.Migrations
                     b.HasOne("CRM.Domain.Usuario", null)
                         .WithMany("Usuarios")
                         .HasForeignKey("UsuarioId");
-                });
-
-            modelBuilder.Entity("CRM.Domain.UsuarioPapel", b =>
-                {
-                    b.HasOne("CRM.Domain.Papel", "Papel")
-                        .WithMany()
-                        .HasForeignKey("PapelID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CRM.Domain.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Papel");
-
-                    b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("CRM.Domain.Componente", b =>
-                {
-                    b.Navigation("ComponenteEndPoints");
-
-                    b.Navigation("Componentes");
-                });
-
-            modelBuilder.Entity("CRM.Domain.Papel", b =>
-                {
-                    b.Navigation("Papeis");
-
-                    b.Navigation("PapelComponentes");
                 });
 
             modelBuilder.Entity("CRM.Domain.Usuario", b =>

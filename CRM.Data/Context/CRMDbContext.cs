@@ -31,6 +31,11 @@ namespace CRM.Data
             modelBuilder.ApplyConfiguration(new PessoaEnderecoMap());
             modelBuilder.ApplyConfiguration(new RegiaoMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new PapelMap());
+            modelBuilder.ApplyConfiguration(new ComponenteMap());
+            modelBuilder.ApplyConfiguration(new ComponenteEndPointMap());
+            modelBuilder.ApplyConfiguration(new PapelComponenteMap());
+            modelBuilder.ApplyConfiguration(new UsuarioPapelMap());
 
             modelBuilder.ApplyGlobalConfigurations();
             modelBuilder.SeedData();

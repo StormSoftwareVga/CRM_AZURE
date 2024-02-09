@@ -8,7 +8,7 @@ namespace CRM.Data
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.Property(x => x.Id).IsRequired();
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Nome).HasMaxLength(100).IsRequired();
 
