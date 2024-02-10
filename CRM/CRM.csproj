@@ -4,6 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>api-documentation.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +31,7 @@
     <ProjectReference Include="..\CRM.Auth\CRM.Auth.csproj" />
     <ProjectReference Include="..\CRM.IoC\CRM.IoC.csproj" />
     <ProjectReference Include="..\CRM.Swagger\CRM.Swagger.csproj" />
+    <ProjectReference Include="..\CRM.Utils\CRM.Utils.csproj" />
   </ItemGroup>
 
 </Project>

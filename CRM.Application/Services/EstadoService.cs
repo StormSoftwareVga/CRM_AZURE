@@ -36,7 +36,7 @@ namespace CRM.Application.Services
             return this.estadoRepository.Delete(_estado);
         }
 
-        public IEnumerable<EstadoViewModel> GetAll()
+        public IEnumerable<EstadoViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
             IEnumerable<Estado> _estado = this.estadoRepository.Query(x => !x.IsDeleted);
 

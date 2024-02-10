@@ -36,7 +36,7 @@ namespace CRM.Application.Services
             return this.municipioRepository.Delete(_municipio);
         }
 
-        public IEnumerable<MunicipioViewModel> GetAll()
+        public IEnumerable<MunicipioViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
             IEnumerable<Municipio> _municipio = this.municipioRepository.Query(x => !x.IsDeleted);
 

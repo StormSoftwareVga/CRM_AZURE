@@ -36,7 +36,7 @@ namespace CRM.Application.Services
             return this.paisRepository.Delete(_pais);
         }
 
-        public IEnumerable<PaisViewModel> GetAll()
+        public IEnumerable<PaisViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
             IEnumerable<Pais> _pais = this.paisRepository.Query(x => !x.IsDeleted);
 

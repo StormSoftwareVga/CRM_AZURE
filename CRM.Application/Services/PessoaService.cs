@@ -3,6 +3,7 @@ using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.Pessoa;
 using CRM.Application.ViewModels.User;
 using CRM.Domain;
+using CRM.Domain.Core;
 using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using Storm.Tecnologia.Commom;
@@ -28,26 +29,45 @@ namespace CRM.Application
             this.controladorPessoaService = controladorPessoaService;
         }
 
-        public IEnumerable<PessoaViewModel> GetAll()
+        public IEnumerable<PessoaViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
-            IEnumerable<Pessoa> _pessoa = this.pessoaRepository.Query(x => !x.IsDeleted);
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<Pessoa> _pessoa = pessoaRepository.GetAll(page, pageSize);
 
-            var _pessoaViewModel = mapper.Map<List<PessoaViewModel>>(_pessoa);
+                var _pessoaViewModel = mapper.Map<List<PessoaViewModel>>(_pessoa);
 
-            return _pessoaViewModel;
+                return _pessoaViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public PessoaViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID da Pessoa é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid usuarioID))
+                    throw new PortalHttpException("ID da Pessoa é inválido!");
 
-            Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
-            if (null == _pessoa)
-                throw new Exception("Pessoa não encontrada");
+                if (null == _pessoa)
+                    throw new PortalHttpException("Pessoa não encontrada");
 
-            return mapper.Map<PessoaViewModel>(_pessoa);
+                return mapper.Map<PessoaViewModel>(_pessoa);
+            }
+            catch (PortalHttpException ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+            
         }
 
         public bool Post(CreatePessoaViewModel viewModel)

@@ -1,6 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0"?>
 <doc>
-  <assembly>
-    <name>Variação do Ativo .NET Core</name>
-  </assembly>
+    <assembly>
+        <name>CRM</name>
+    </assembly>
+    <members>
+        <member name="M:CRM.Controllers.PessoaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Obtém a lista de pessoas cadastradas no sistema
+            </summary>
+            <remarks>
+            Obtém a lista de pessoas cadastradas no sistema
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Lista de pessoas cadastradas no sistema</returns>
+        </member>
+        <member name="P:CRM.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:CRM.Startup.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            StartUp
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:CRM.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:CRM.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+        </member>
+    </members>
 </doc>

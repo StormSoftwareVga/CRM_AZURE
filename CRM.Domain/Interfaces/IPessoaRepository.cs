@@ -8,5 +8,6 @@ namespace CRM.Domain
 {
     public interface IPessoaRepository : IRepository<Pessoa>
     {
+        IEnumerable<Pessoa> GetAll(int? page = 0, int? pageSize = 0);
     }
 }

@@ -36,7 +36,7 @@ namespace CRM.Application.Services
             return this.pessoaEnderecoRepository.Delete(_pessoaEndereco);
         }
 
-        public IEnumerable<PessoaEnderecoViewModel> GetAll()
+        public IEnumerable<PessoaEnderecoViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
             IEnumerable<PessoaEndereco> _pessoaEndereco = this.pessoaEnderecoRepository.Query(x => !x.IsDeleted);
 

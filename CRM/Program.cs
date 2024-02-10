@@ -1,3 +1,9 @@
+using CRM;
+using Serilog;
+using Serilog.Events;
+using Serilog.Exceptions;
+using Serilog.Filters;
+
 using CRM.Application;
 using CRM.Application.ViewModels.Response;
 using CRM.Auth.Models;
@@ -12,87 +18,35 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllers();
-
-builder.Services.AddDbContext<CRMDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CrmDB")).EnableSensitiveDataLogging());
-
-NativeInjector.RegisterServices(builder.Services);
-
-builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
-
-builder.Services.AddSwaggerConfiguration();
-
-builder.Services.AddApiBehaviorSetup();
-
-builder.Services.AddCors(options =>
+public class Program
 {
-    options.AddPolicy("AllowSpecificOrigin", builder =>
+    [STAThread]
+    public static void Main(string[] args)
     {
-        builder
-            .SetIsOriginAllowed(_ => true)
-            .AllowAnyMethod()
-            .AllowAnyHeader();
+        CreateHostBuilder(args).Build().Run();
+    }
 
-
-        //.WithOrigins("http://localhost:4200")  // Adicione aqui o seu domínio Angular
-    });
-});
-
-var chave = Encoding.ASCII.GetBytes(Settings.Secret);
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(chave),
-        ValidateIssuer = false,
-        ValidateAudience = false
-    };
-});
-
-var app = builder.Build();
-
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseDeveloperExceptionPage();
-//}
-//else
-//{
-//    app.UseExceptionHandler("/Error");
-//    app.UseHsts();
-//}
-
-
-app.UseSwaggerConfiguration();
-
-app.UseCors("AllowSpecificOrigin");
-
-app.UseHttpsRedirection();
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.UseMiddleware(typeof(ErrorMiddleware));
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller}/{action=Index}/{id?}");
-});
-
-app.Services.AddDatabaseSetup();
-
-app.Run();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+    .UseSerilog((context, services, configuration) => configuration
+    .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Information)
+    .MinimumLevel.Override("Microsoft.AspNetCore.HttpLogging.HttpLoggingMiddleware", LogEventLevel.Information)
+    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+    .MinimumLevel.Override("AspNetCore.HealthChecks.UI", LogEventLevel.Warning)
+    .ReadFrom.Configuration(context.Configuration)
+    .ReadFrom.Services(services)
+    .Enrich.FromLogContext()
+    .Enrich.WithExceptionDetails()
+    .Enrich.WithMachineName()
+    .Enrich.WithEnvironmentUserName()
+    .Enrich.WithClientIp()
+    .Enrich.WithCorrelationIdHeader("x-correlation-id")
+    .Enrich.WithCorrelationId()
+    .Filter.ByExcluding(Matching.FromSource("Microsoft.AspNetCore.StaticFiles"))
+    .Filter.ByExcluding(c => c.Properties.Any(p => p.Value.ToString().Contains("/healthcheck")))
+    .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3} - {CorrelationId} {SystemOrigin}] {Message:lj}{NewLine}{Exception}"), writeToProviders: true);
+}

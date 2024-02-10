@@ -36,7 +36,7 @@ namespace CRM.Application.Services
             return this.regiaoRepository.Delete(_regiao);
         }
 
-        public IEnumerable<RegiaoViewModel> GetAll()
+        public IEnumerable<RegiaoViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
             IEnumerable<Regiao> _regiao = this.regiaoRepository.Query(x => !x.IsDeleted);
 

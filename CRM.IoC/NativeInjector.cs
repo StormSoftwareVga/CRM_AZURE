@@ -10,6 +10,8 @@ using CRM.Domain.Services;
 using Storm.Tecnologia.Gov.Interfaces;
 using Storm.Tecnologia.Gov.Services;
 using CRM.Domain.Core.Notifications;
+using Microsoft.AspNetCore.Http;
+using CRM.Auth.Models;
 
 namespace CRM.IoC
 {
@@ -19,6 +21,7 @@ namespace CRM.IoC
         {
             #region DomainCore
                 services.AddSingleton<IDomainNotificationService, DomainNotificationService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             #endregion
 
             #region Services
@@ -50,6 +53,8 @@ namespace CRM.IoC
             services.AddScoped<IPessoaEnderecoRepository, PessoaEnderecoRepository>();
 
             #endregion
+
+            Constants.serviceProvider = services.BuildServiceProvider();
         }
     }
 }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CRM.Auth\CRM.Auth.csproj" />
+    <ProjectReference Include="..\CRM.Domain.Core\CRM.Domain.Core.csproj" />
     <ProjectReference Include="..\CRM.Domain\CRM.Domain.csproj" />
     <ProjectReference Include="..\Storm.Tecnologia.Commom\Storm.Tecnologia.Commom.csproj" />
   </ItemGroup>
