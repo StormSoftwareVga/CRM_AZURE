@@ -1,5 +1,7 @@
 ﻿using CRM;
 using CRM.Application;
+using CRM.Application.Services;
+using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Response;
 using CRM.Application.ViewModels.User;
 using CRM.Auth.Services;
@@ -15,15 +17,28 @@ namespace ApiSpa.Controllers
     {
         private readonly IUsuarioService usuarioService;
 
+        
         public UsuarioController(IUsuarioService usuarioService)
         {
             this.usuarioService = usuarioService;
         }
-
-        [HttpGet]
-        public IActionResult Get()
+        /// <summary>
+        /// Obtém a lista de usuários cadastrados no sistema
+        /// </summary>
+        /// <remarks>
+        /// Obtém a lista de usuários cadastrados no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Lista de usuários cadastrados no sistema</returns>
+        [HttpGet, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<GetUsuarioViewModel>>), 200)]
+        public IActionResult GetAll(int? page = 1, int? pageSize = 25)
         {
-            return Ok(this.usuarioService.Get());
+            var result = usuarioService.GetAll(page, pageSize);
+
+            return Ok(result, page, pageSize);
         }
 
         [HttpGet("{id}")]

@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CRM.Application.Interfaces;
+using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Estado;
 using CRM.Domain;
+using CRM.Domain.Core;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,11 +40,27 @@ namespace CRM.Application.Services
 
         public IEnumerable<EstadoViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
-            IEnumerable<Estado> _estado = this.estadoRepository.Query(x => !x.IsDeleted);
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<Estado> _estado = estadoRepository.GetAll(page, pageSize);
 
-            var _estadoViewModel = mapper.Map<List<EstadoViewModel>>(_estado);
+                var _estadoViewModel = mapper.Map<List<EstadoViewModel>>(_estado);
 
-            return _estadoViewModel;
+                return _estadoViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+
+            }
+
+            //IEnumerable<Estado> _estado = this.estadoRepository.Query(x => !x.IsDeleted);
+
+            //var _estadoViewModel = mapper.Map<List<EstadoViewModel>>(_estado);
+
+            //return _estadoViewModel;
         }
 
         public EstadoViewModel GetById(string id)

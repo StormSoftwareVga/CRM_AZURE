@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRM.Utils;
+using CRM.Domain.Core;
 
 namespace CRM.Data.Repositories
 {
@@ -14,9 +16,19 @@ namespace CRM.Data.Repositories
         {
 
         }
-        public IEnumerable<Municipio> GetAll()
+        public IEnumerable<Municipio> GetAll(int? page = 0, int? pageSize = 0)
         {
-            return Query(x => !x.IsDeleted);
+            try
+            {
+                return (from municipio in _context.Set<Municipio>().AsQueryable()
+                        where municipio.IsDeleted == false
+                        select municipio).DataPaged(page, pageSize);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
         }
     }
 }

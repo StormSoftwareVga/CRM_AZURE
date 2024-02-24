@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CRM.Application.Interfaces;
+using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Municipio;
 using CRM.Domain;
+using CRM.Domain.Core;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,12 +40,27 @@ namespace CRM.Application.Services
 
         public IEnumerable<MunicipioViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
-            IEnumerable<Municipio> _municipio = this.municipioRepository.Query(x => !x.IsDeleted);
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<Municipio> _municipio = municipioRepository.GetAll(page, pageSize);
 
-            
-            var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
+                var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
 
-            return _municipioViewModel;
+                return _municipioViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+
+            }
+            //IEnumerable<Municipio> _municipio = this.municipioRepository.Query(x => !x.IsDeleted);
+
+
+            //var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
+
+            //return _municipioViewModel;
         }
 
         public MunicipioViewModel GetById(string id)

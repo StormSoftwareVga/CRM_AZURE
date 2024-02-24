@@ -35,12 +35,24 @@ namespace CRM.Controllers
             var result = pessoaService.GetAll(page,pageSize);
             return Ok(result, page, pageSize);
         }
-
+        /// <summary>
+        /// Obtém uma pessoa com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Obtém uma pessoa com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Obtém uma pessoa com base no ID passado no sistema</returns>
         [HttpGet("{id}"),AllowAnonymous]
-        [Produces("application/json"), ProducesResponseType(typeof(OKResultOperation<PessoaViewModel>), 200)]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<PessoaViewModel>), 200)]
         public IActionResult GetById(string id)
         {
-            return Ok(this.pessoaService.GetById(id));
+            var result = pessoaService.GetById(id);
+
+            return Ok(result);
+            //return Ok(this.pessoaService.GetById(id));
         }
 
         [HttpPost]

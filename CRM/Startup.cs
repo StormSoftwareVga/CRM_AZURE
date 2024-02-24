@@ -43,7 +43,7 @@ namespace CRM
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.File(string.Concat(env.ContentRootPath, $@"\logs\fakelog-{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}.txt"), retainedFileCountLimit: 10)
+                .WriteTo.File(string.Concat(env.ContentRootPath, $@"\logs\datalog-{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}.txt"), retainedFileCountLimit: 10)
                 .CreateLogger();
             CRM.Domain.Core.Log.Register(Log.Logger);
         }
@@ -90,7 +90,7 @@ namespace CRM
             providerOptions =>
             {
                 providerOptions.CommandTimeout(150000);
-            }), ServiceLifetime.Transient);
+            }), ServiceLifetime.Scoped);
 
             //Swagger configuration
             services.AddSwaggerConfiguration();

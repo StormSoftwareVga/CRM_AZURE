@@ -49,5 +49,7 @@ namespace CRM.Domain
         Task<TEntity> GetAsync(params object[] Keys);
 
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> where);
+
+        void Commit();
     }
 }

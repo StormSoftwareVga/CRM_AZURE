@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using CRM.Domain;
 using Xunit;
 using CRM.Application.ViewModels.User;
+using System.Linq;
 
 namespace CRM.Application.Tests
 {
@@ -65,7 +66,7 @@ namespace CRM.Application.Tests
 
             //Criando um objeto mock do UserRepository e configurando para retornar a lista criada anteriormente se chamar o método GetAll()
             var _userRepository = new Mock<IUsuarioRepository>();
-            _userRepository.Setup(x => x.GetAll()).Returns(_usuarios);
+            _userRepository.Setup(x => x.GetAll(1,25)).Returns(_usuarios);
 
             //Criando um objeto mock do AutoMapper para que possamos converter o retorno para o tipo List<UserViewModel>()
             var _autoMapperProfile = new AutoMapperSetup();
@@ -76,10 +77,10 @@ namespace CRM.Application.Tests
             usuarioService = new UsuarioService(_userRepository.Object, _mapper);
 
             //Obtendo os valores do método Get para validar se vai retornar o objeto criado acima.
-            var result = usuarioService.Get();
+            var result = usuarioService.GetAll();
 
             //Validando se o retorno contém uma lista com objetos.
-            Assert.True(result.Count > 0);
+            Assert.True(result.Count() > 0);
         }
 
         [Fact]

@@ -20,9 +20,26 @@ namespace CRM.Data
             try
             {
                 return (from pessoas in _context.Set<Pessoa>().AsQueryable()
+                        where pessoas.IsDeleted == false
                         select pessoas).DataPaged(page, pageSize);
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+        public Pessoa GetById(Guid id)
+        {
+            try
+            {
+
+                
+                return (from pessoas in _context.Set<Pessoa>().AsQueryable()
+                                 where pessoas.IsDeleted == false && id == pessoas.Id
+                                 select pessoas).FirstOrDefault();
+            }
+            catch (Exception ex)
             {
                 Log.Error(ex);
                 throw ex;

@@ -55,14 +55,18 @@ namespace CRM.Application
                 if (!Guid.TryParse(id, out Guid usuarioID))
                     throw new PortalHttpException("ID da Pessoa é inválido!");
 
-                Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Pessoa _pessoa = pessoaRepository.GetById(usuarioID);
+
+                var _pessoaViewModel = mapper.Map<PessoaViewModel>(_pessoa);
+                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
                 if (null == _pessoa)
                     throw new PortalHttpException("Pessoa não encontrada");
 
-                return mapper.Map<PessoaViewModel>(_pessoa);
+                return _pessoaViewModel;
+                //return mapper.Map<PessoaViewModel>(_pessoa);
             }
-            catch (PortalHttpException ex)
+            catch (Exception ex)
             {
                 Log.Error(ex, ex.Message);
                 throw ex;

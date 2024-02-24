@@ -8,7 +8,9 @@ namespace CRM.Domain.Interfaces
 {
     public interface IPaisRepository : IRepository<Pais>
     {
-        IEnumerable<Pais> GetAll();
+        IEnumerable<Pais> GetAll(int? page = 0, int? pageSize = 0);
+
+        Pais? GetByName(string name);
 
     }
 }

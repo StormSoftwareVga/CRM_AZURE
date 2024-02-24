@@ -7,6 +7,9 @@ using CRM.Domain;
 using CRM.Application.ViewModels.User;
 using BCrypt.Net;
 using CRM.Domain.Core.CrmException;
+using CRM.Application.ViewModels;
+using CRM.Domain.Interfaces;
+using CRM.Domain.Core;
 
 namespace CRM.Application
 {
@@ -21,15 +24,24 @@ namespace CRM.Application
             this.mapper = mapper;
         }
 
-        public List<GetUsuarioViewModel> Get()
+        public IEnumerable<GetUsuarioViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
-            IEnumerable<Usuario> _variacoes = this.usuarioRepository.GetAll();
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<Usuario> _usuario = usuarioRepository.GetAll(page, pageSize);
 
-            var _usuarioViewModel = mapper.Map<List<GetUsuarioViewModel>>(_variacoes);
+                var _usuarioViewModel = mapper.Map<IEnumerable<GetUsuarioViewModel>>(_usuario);
 
-            return _usuarioViewModel;
+                return _usuarioViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+
+            }
         }
-
         public GetUsuarioViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))
@@ -111,6 +123,16 @@ namespace CRM.Application
 
 
             return new UserAuthenticateResponseViewModel(mapper.Map<UsuarioViewModel>(_usuario), TokenService.GenerateToken(_usuario));
+        }
+
+        IEnumerable<UsuarioViewModel> IBaseService<Usuario, UsuarioViewModel>.GetAll(int? page, int? pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        UsuarioViewModel IBaseService<Usuario, UsuarioViewModel>.GetById(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

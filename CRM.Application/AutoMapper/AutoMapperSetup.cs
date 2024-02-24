@@ -15,6 +15,7 @@ namespace CRM.Application
         {
             #region ViewModel -> Domain
 
+            
             CreateMap<UsuarioViewModel, Usuario>();
             CreateMap<CreateUsuarioViewModel, Usuario>();
 

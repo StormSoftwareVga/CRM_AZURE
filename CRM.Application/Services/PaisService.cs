@@ -2,6 +2,7 @@
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels;
 using CRM.Domain;
+using CRM.Domain.Core;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,27 @@ namespace CRM.Application.Services
 
         public IEnumerable<PaisViewModel> GetAll(int? page = 0, int? pageSize = 0)
         {
-            IEnumerable<Pais> _pais = this.paisRepository.Query(x => !x.IsDeleted);
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<Pais> _pais = paisRepository.GetAll(page, pageSize);
 
-            var _paisViewModel = mapper.Map<List<PaisViewModel>>(_pais);
+                var _paisViewModel = mapper.Map<List<PaisViewModel>>(_pais);
 
-            return _paisViewModel;
+                return _paisViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            
+            }
+
+            //IEnumerable<Pais> _pais = this.paisRepository.Query(x => !x.IsDeleted);
+
+            //var _paisViewModel = mapper.Map<List<PaisViewModel>>(_pais);
+
+            //return _paisViewModel;
         }
 
         public PaisViewModel GetById(string id)

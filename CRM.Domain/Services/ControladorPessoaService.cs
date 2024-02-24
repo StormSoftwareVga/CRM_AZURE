@@ -47,7 +47,7 @@ namespace CRM.Domain.Services
                         if (dadosCNPJ.status.Equals("ERROR"))
                             throw new Exception(dadosCNPJ.message);
 
-                        var pais = new Pais() { Nome = "Brasil" };
+                        var pais = paisRepository.GetByName("Brasil") ?? paisRepository.Create(new Pais { Nome = "Brasil" });
 
                         var estadoLocalidade = await localidadesService.GetEstado(dadosCNPJ.uf);
 
@@ -57,12 +57,11 @@ namespace CRM.Domain.Services
 
                         var municipio = new Municipio() { Nome = dadosCNPJ.municipio, Estado = estado };
 
-                        var paisExistente = paisRepository.Query(x => !x.IsDeleted && x.Nome == pais.Nome);
-                        if (paisExistente.Count() == 0)
-                            paisRepository.Create(pais);
-                        else
-                            pais = paisExistente.FirstOrDefault();
+                        
+                        
+                           
 
+                        
                         var regiaoExistente = regiaoRepository.Query(x => !x.IsDeleted && x.Nome == regiao.Nome && x.Sigla == regiao.Sigla && x.Pais.Nome == regiao.Pais.Nome);
                         if (regiaoExistente.Count() == 0)
                             regiaoRepository.Create(regiao);
@@ -107,8 +106,10 @@ namespace CRM.Domain.Services
                     else
                         throw new Exception("Não é possivel cadastrar outros tipos de documento além de CNPJ. Aguarde novas atualizações do sistema.");
 
-                    scope.Complete(); 
+                   
 
+                    scope.Complete();
+                    
                     return true;
                 }
                 catch (Exception ex)

@@ -418,5 +418,10 @@ namespace CRM.Data
                 throw;
             }
         }
+        
+        public void Commit()
+        {
+            _context.SaveChanges();
+        }
     }
 }

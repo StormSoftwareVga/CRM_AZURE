@@ -1,12 +1,15 @@
 ﻿using CRM.Domain;
+using CRM.Domain.Core;
 using CRM.Domain.Interfaces;
+using CRM.Utils;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM.Data.Repositories
+namespace CRM.Data
 {
     public class PaisRepository : Repository<Pais>, IPaisRepository
     {
@@ -14,9 +17,35 @@ namespace CRM.Data.Repositories
         {
 
         }
-        public IEnumerable<Pais> GetAll()
+        public IEnumerable<Pais> GetAll(int? page = 0, int? pageSize = 0)
         {
-            return Query(x => !x.IsDeleted);
+            try
+            {
+                return (from pais in _context.Set<Pais>().AsQueryable()
+                        where pais.IsDeleted == false
+                        select pais).DataPaged(page, pageSize);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
         }
+
+        public Pais? GetByName(string name)
+        {
+            try
+            {
+                return (from pais in _context.Set<Pais>().AsQueryable()
+                        where pais.IsDeleted == false && pais.Nome == name
+                        select pais).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
     }
 }

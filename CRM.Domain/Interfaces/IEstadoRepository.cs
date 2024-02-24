@@ -9,7 +9,6 @@ namespace CRM.Domain.Interfaces
     public interface IEstadoRepository : IRepository<Estado>
     {
 
-        IEnumerable<Estado> GetAll();
-    
+        IEnumerable<Estado> GetAll(int? page = 0, int? pageSize = 0);
     }
 }
