@@ -8,9 +8,9 @@ namespace CRM.Application
 {
     public interface IBaseService<TEntity, TViewModel>
     {
-        IEnumerable<TViewModel> GetAll(int? page = 0, int? pageSize = 0);
+        IEnumerable<TViewModel> GetAll();
         TViewModel GetById(string id);
-        //bool Post(TViewModel viewModel);
+        bool Post(TViewModel viewModel);
         bool Put(TViewModel viewModel);
         bool Delete(string id);
     }

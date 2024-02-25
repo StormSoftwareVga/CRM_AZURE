@@ -15,13 +15,13 @@ namespace CRM.Data
         {
         }
 
-        public IEnumerable<Pessoa> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<Pessoa> GetAll()
         {
             try
             {
                 return (from pessoas in _context.Set<Pessoa>().AsQueryable()
                         where pessoas.IsDeleted == false
-                        select pessoas).DataPaged(page, pageSize);
+                        select pessoas);
             }
             catch (Exception ex)
             {

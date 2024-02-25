@@ -63,6 +63,11 @@ namespace CRM.Application.Services
             //return _estadoViewModel;
         }
 
+        public IEnumerable<EstadoViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public EstadoViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))

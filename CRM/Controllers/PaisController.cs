@@ -31,7 +31,7 @@ namespace CRM.Controllers
         [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<PaisViewModel>>), 200)]
         public IActionResult Get(int? page = 1, int? pageSize = 25)
         {
-            var result = paisService.GetAll(page, pageSize);
+            var result = paisService.GetAll();
             return Ok(result, page, pageSize);
         }
 

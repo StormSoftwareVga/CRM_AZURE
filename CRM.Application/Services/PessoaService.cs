@@ -29,12 +29,12 @@ namespace CRM.Application
             this.controladorPessoaService = controladorPessoaService;
         }
 
-        public IEnumerable<PessoaViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<PessoaViewModel> GetAll()
         {
             try
             {
                 Log.Information("GetAll");
-                IEnumerable<Pessoa> _pessoa = pessoaRepository.GetAll(page, pageSize);
+                IEnumerable<Pessoa> _pessoa = pessoaRepository.GetAll();
 
                 var _pessoaViewModel = mapper.Map<List<PessoaViewModel>>(_pessoa);
 
@@ -72,6 +72,24 @@ namespace CRM.Application
                 throw ex;
             }
             
+        }
+
+        public bool Post(PessoaViewModel viewModel)
+        {
+            //return Post(mapper.Map<CreatePessoaViewModel>(viewModel));
+            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
+
+            var _pessoa = mapper.Map<Pessoa>(viewModel);
+
+            var pessoaJaExiste = this.pessoaRepository.Find(x => x.Documento.Replace(".", "").Replace("-", "").Replace("/", "") == viewModel.Documento.Replace(".", "").Replace("-", "").Replace("/", ""));
+            if (pessoaJaExiste == null)
+            {
+                this.pessoaRepository.Create(_pessoa);
+
+                return true;
+            }
+
+            return false;
         }
 
         public bool Post(CreatePessoaViewModel viewModel)

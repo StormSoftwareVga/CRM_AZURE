@@ -45,6 +45,11 @@ namespace CRM.Application.Services
             return _pessoaEnderecoViewModel;
         }
 
+        public IEnumerable<PessoaEnderecoViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public PessoaEnderecoViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))

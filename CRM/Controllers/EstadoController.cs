@@ -29,7 +29,7 @@ namespace CRM.Controllers
         [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<EstadoViewModel>>), 200)]
         public IActionResult Get (int? page = 1, int? pageSize = 25)
         {
-            var result = estadoService.GetAll(page, pageSize);
+            var result = estadoService.GetAll();
             return Ok(result, page, pageSize);
         }
 

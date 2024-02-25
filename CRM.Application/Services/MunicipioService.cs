@@ -63,6 +63,11 @@ namespace CRM.Application.Services
             //return _municipioViewModel;
         }
 
+        public IEnumerable<MunicipioViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public MunicipioViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))

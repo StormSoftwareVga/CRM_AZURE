@@ -32,7 +32,7 @@ namespace CRM.Controllers
         [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<PessoaViewModel>>), 200)]
         public IActionResult Get(int? page = 1, int? pageSize = 25)
         {
-            var result = pessoaService.GetAll(page,pageSize);
+            var result = pessoaService.GetAll();
             return Ok(result, page, pageSize);
         }
         /// <summary>

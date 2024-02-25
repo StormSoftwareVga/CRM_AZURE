@@ -45,6 +45,11 @@ namespace CRM.Application.Services
             return _regiaoViewModel;
         }
 
+        public IEnumerable<RegiaoViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public RegiaoViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))

@@ -20,7 +20,7 @@ namespace CRM.Utils
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
             return new OKResultSearch<IEnumerable<T>>
             {
-                Data = query,
+                Data = query.DataPaged(page, pageSize),
                 Links = new Links(page, pageSize, totalPages),
                 Meta = new OpenDataMeta()
                 {

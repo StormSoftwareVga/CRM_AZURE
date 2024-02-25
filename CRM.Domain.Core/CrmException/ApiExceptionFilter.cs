@@ -15,7 +15,6 @@ namespace CRM.Domain.Core.CrmException
         public override void OnException(ExceptionContext context)
         {
             var codigo = Marshal.GetExceptionPointers().ToString();
-            var portalExeception = context.Exception.GetType().GetProperty("Causas");
             var messagem = context.Exception.Message;
             var rastreamento = context.Exception.StackTrace;
 
@@ -24,24 +23,27 @@ namespace CRM.Domain.Core.CrmException
                 Log.Information("[BusinessException] " + messagem);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.OK;
                 context.HttpContext.Response.ContentType = "application/json; charset=utf-8";
-                context.Result = new JsonResult(new ErrorBase(codigo, messagem, rastreamento));
+                context.Result = new JsonResult(new Error(codigo, messagem, rastreamento));
             }
             else
             {
                 Log.Error("[Exception] " + messagem);
 
+                var portalExeception = context.Exception.GetType().GetProperty("Causas");
+
                 if (portalExeception?.PropertyType.Name == "PortalHttpExceptionInfo[]")
                 {
+                    codigo = ((int)HttpStatusCode.BadRequest).ToString();
                     context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     context.HttpContext.Response.ContentType = "application/json; charset=utf-8";
-                    context.Result = new JsonResult(new ErrorBase(codigo, messagem, rastreamento));
+                    context.Result = new JsonResult(new Error(codigo, messagem, rastreamento));
                 }
 
                 else
                 {
                     context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     context.HttpContext.Response.ContentType = "application/json; charset=utf-8";
-                    context.Result = new JsonResult(new ErrorBase(codigo, messagem, rastreamento));
+                    context.Result = new JsonResult(new Error(context.HttpContext.Response.StatusCode.ToString(), messagem, rastreamento));
                 }
 
                 base.OnException(context);

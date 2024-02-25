@@ -125,12 +125,22 @@ namespace CRM.Application
             return new UserAuthenticateResponseViewModel(mapper.Map<UsuarioViewModel>(_usuario), TokenService.GenerateToken(_usuario));
         }
 
-        IEnumerable<UsuarioViewModel> IBaseService<Usuario, UsuarioViewModel>.GetAll(int? page, int? pageSize)
+        IEnumerable<UsuarioViewModel> IBaseService<Usuario, UsuarioViewModel>.GetAll()
         {
             throw new NotImplementedException();
         }
 
         UsuarioViewModel IBaseService<Usuario, UsuarioViewModel>.GetById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UsuarioViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Post(UsuarioViewModel viewModel)
         {
             throw new NotImplementedException();
         }

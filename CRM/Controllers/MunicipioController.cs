@@ -40,7 +40,7 @@ namespace CRM.Controllers
         [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<MunicipioViewModel>>), 200)]
         public IActionResult Get(int? page = 1, int? pageSize = 25)
         {
-            var result = municipioService.GetAll(page, pageSize = 25);
+            var result = municipioService.GetAll();
             return Ok(result, page, pageSize);
         }
 

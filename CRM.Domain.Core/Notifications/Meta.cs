@@ -16,6 +16,6 @@ namespace CRM.Domain.Core.Notifications
         /// Data e hora da consulta, conforme especificação RFC-3339, formato UTC.
         /// </summary>
         /// <example>2021-05-21T08:30:00Z</example>
-        public DateTime RequestDateTime { get; set; }
+        public DateTime RequestDateTime { get; set; } = DateTime.Now;
     }
 }

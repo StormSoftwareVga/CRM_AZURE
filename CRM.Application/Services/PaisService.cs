@@ -62,6 +62,11 @@ namespace CRM.Application.Services
             //return _paisViewModel;
         }
 
+        public IEnumerable<PaisViewModel> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public PaisViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid usuarioID))

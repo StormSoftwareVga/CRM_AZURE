@@ -45,6 +45,12 @@ namespace CRM.Application
             CreateMap<PessoaEndereco, PessoaEnderecoViewModel>();
 
             #endregion
+
+            #region ViewModel -> CustomViewModel
+
+            CreateMap<CreatePessoaViewModel, PessoaViewModel>().ReverseMap();
+
+            #endregion
         }
     }
 }

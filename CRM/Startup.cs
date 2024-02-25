@@ -90,7 +90,7 @@ namespace CRM
             providerOptions =>
             {
                 providerOptions.CommandTimeout(150000);
-            }), ServiceLifetime.Scoped);
+            }), ServiceLifetime.Transient);
 
             //Swagger configuration
             services.AddSwaggerConfiguration();
@@ -192,6 +192,8 @@ namespace CRM
                 };
             });
 
+            app.UseMiddleware(typeof(ErrorMiddleware));
+
             app.UseCors(c =>
             {
                 c.AllowAnyHeader();
@@ -213,9 +215,6 @@ namespace CRM
             app.UseRouting();
             app.UseAuthorization();
 
-            //Middleware desativado temporariamente devido a mudança no tratamento de erros
-            //app.UseMiddleware(typeof(ErrorMiddleware));
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -234,12 +233,6 @@ namespace CRM
             //loggerFactory = _loggerFactory;
 
             app.UseSwaggerConfiguration(env);
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller}/{action=Index}/{id?}");
-            //});
 
             //Adicionar a compressão ao servico
             app.UseResponseCompression();

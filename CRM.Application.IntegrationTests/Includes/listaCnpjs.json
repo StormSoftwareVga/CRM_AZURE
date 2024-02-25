@@ -1,0 +1,794 @@
+[
+  {
+    "Nome": "DIGISUL LTDA",
+    "Documento": "86.462.959/0001-64",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "BANCO DO BRASIL SA",
+    "Documento": "00.000.000/0006-04",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "WITEC - IT SOLUTIONS SERVICOS DE INFORMATICA LTDA",
+    "Documento": "08.280.681/0001-09",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "RE9 COMERCIO E SERVICOS DE INFORMATICA LTDA",
+    "Documento": "12.656.026/0001-71",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "NOVA SMAR S/A",
+    "Documento": "29.321.094/0001-82",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "POSTOS WK GOIANESIA LTDA",
+    "Documento": "29.137.764/0001-05",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "HITO CONSULTORIA LTDA",
+    "Documento": "20.743.525/0001-24",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CORREA, PORTO SOCIEDADE DE ADVOGADOS",
+    "Documento": "10.391.606/0001-59",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MATH GROUP ADMINISTRACAO E TECNOLOGIA DA INFORMACAO S.A.",
+    "Documento": "02.802.193/0001-20",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TECNOLOGIA UNICA SERVICOS DE INFORMATICA LTDA",
+    "Documento": "07.879.742/0001-88",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CEAL INDUSTRIAL E COMERCIAL LTDA",
+    "Documento": "10.337.438/0001-13",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CSS CONSTRUTORA LTDA",
+    "Documento": "21.704.420/0001-29",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "COMANDO DA 4A REGIAO MILITAR",
+    "Documento": "09.576.937/0001-84",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "INSTITUTO ADVENTISTA DE ENSINO",
+    "Documento": "43.586.056/0017-40",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MILLS LOCACAO, SERVICOS E LOGISTICA S.A.",
+    "Documento": "27.093.558/0001-15",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MERCOPLASA INDUSTRIA DE CONTENTORES LTDA",
+    "Documento": "05.623.823/0001-97",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MENDES ADMINISTRACAO DE HOTEIS E GESTAO DE BENS PROPRIOS LTDA",
+    "Documento": "03.479.230/0001-73",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "THERASKIN FARMACEUTICA LTDA.",
+    "Documento": "61.517.397/0001-88",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FAMA DISTRIBUICAO E LOGISTICA LTDA",
+    "Documento": "06.029.901/0001-92",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DP1 RESTAURANTE LTDA",
+    "Documento": "24.840.166/0001-84",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "NITERRA DO BRASIL LTDA.",
+    "Documento": "52.541.760/0001-00",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "JESSE PRODUTOS ALIMENTICIOS LTDA",
+    "Documento": "05.152.395/0001-61",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "REFINARIA DE MATARIPE S.A.",
+    "Documento": "41.777.706/0001-41",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "OSSEL-ORGANIZACAO ANDREENSE EMPREENDIMENTOS DE LUTO LTDA",
+    "Documento": "02.512.856/0001-71",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CONVERPLAST EMBALAGENS LTDA",
+    "Documento": "52.616.232/0001-72",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "VIS ADMINISTRACAO E PARTICIPACOES S/A",
+    "Documento": "19.739.681/0001-32",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ISL IMPORTACAO E EXPORTACAO INDUSTRIA E COMERCIO LTDA",
+    "Documento": "05.592.812/0001-97",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DASS NORDESTE CALCADOS E ARTIGOS ESPORTIVOS S.A",
+    "Documento": "01.287.588/0001-79",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TESS INDUSTRIA E COMERCIO LTDA",
+    "Documento": "09.130.858/0001-45",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ANGRA SERVICOS ESPECIALIZADOS LTDA",
+    "Documento": "17.809.331/0001-70",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "HOSPITAL CESAR LEITE",
+    "Documento": "22.263.081/0001-55",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FUNDACAO UNIVERSITARIA PARA O VESTIBULAR FUVEST",
+    "Documento": "47.900.758/0001-40",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CLINICA QUALI SAUDE LTDA",
+    "Documento": "50.270.398/0001-54",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ASSOCIACAO INSTITUTO FRATERNIDADE LUZ - FRALUZ",
+    "Documento": "07.810.965/0001-99",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CARGLASS AUTOMOTIVA LTDA.",
+    "Documento": "68.062.827/0001-63",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "BORA TRANSPORTES LTDA",
+    "Documento": "05.504.835/0001-00",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MINISTERIO PUBLICO DO ESTADO DO ESPIRITO SANTO",
+    "Documento": "02.304.470/0001-74",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SUPERMERCADO ESTRELA DE REGENTE FEIJO LTDA",
+    "Documento": "55.624.498/0010-46",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FUNDACAO DE SEGURIDADE SOCIAL DA ARCELORMITTAL BRASIL - FUNSSEST",
+    "Documento": "31.787.625/0001-79",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "WILER - KAR COMERCIO E DECORACOES LTDA",
+    "Documento": "04.539.316/0001-07",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DISPLAN ENCOMENDAS URGENTES LTDA",
+    "Documento": "59.874.354/0001-08",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FORTUNA COMERCIO LTDA",
+    "Documento": "07.117.240/0002-09",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SONY MUSIC ENTERTAINMENT BRASIL LTDA",
+    "Documento": "43.203.520/0001-04",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "INSTITUTO PHORTE DE EDUCACAO LTDA",
+    "Documento": "09.019.393/0001-50",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TROCA TRANSPORTES LTDA",
+    "Documento": "00.193.687/0001-29",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PROCURADORIA-GERAL DO ESTADO",
+    "Documento": "76.276.823/0001-06",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TEXTIL CANATIBA LTDA",
+    "Documento": "56.723.091/0001-48",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ALPHA7 DESENVOLVIMENTO DE SOFTWARE LTDA",
+    "Documento": "12.574.376/0001-99",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TROPICAL INDUSTRIA DE ALIMENTOS S/A",
+    "Documento": "22.492.169/0001-49",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SUDMAR TRANSPORTE RODOVIARIO DE CARGAS LTDA",
+    "Documento": "07.199.113/0001-07",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CURUPIRA S.A",
+    "Documento": "04.413.729/0001-40",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "AGM ASSESSORIA EMPRESARIAL E CONTABILIDADE",
+    "Documento": "09.020.412/0001-68",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FLIXBUS TRANSPORTE E TECNOLOGIA DO BRASIL LTDA.",
+    "Documento": "35.921.233/0001-01",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CONCILIG TELEMARKETING E COBRANCA LTDA.",
+    "Documento": "08.684.859/0001-79",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ITALINDUSTRIA TERMO ELETRO MECANICA - EIRELI",
+    "Documento": "61.523.452/0001-42",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ICON S/A - EQUIPAMENTOS E MOLDES",
+    "Documento": "00.364.536/0001-96",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "IHARABRAS SA INDUSTRIAS QUIMICAS",
+    "Documento": "61.142.550/0001-30",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MOSAIC FERTILIZANTES DO BRASIL LTDA.",
+    "Documento": "61.156.501/0001-56",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FMC QUIMICA DO BRASIL LTDA.",
+    "Documento": "04.136.367/0001-98",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "REFINARIA DE PETROLEO RIOGRANDENSE S/A",
+    "Documento": "94.845.674/0001-30",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TRANSPORTES RODOWAY LTDA",
+    "Documento": "02.033.131/0001-09",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PHELPS INDUSTRIA, COMERCIO, IMPORTACAO E EXPORTACAO LTDA.",
+    "Documento": "07.162.770/0001-80",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "INDUSTRIA DE TRANSFORMADORES ITAIPU LTDA",
+    "Documento": "46.958.948/0001-55",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SEKALOG TRANSPORTES LTDA",
+    "Documento": "10.458.775/0001-69",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PLANUSI EQUIPAMENTOS INDUSTRIAIS LTDA",
+    "Documento": "03.329.291/0001-54",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MUNTERS BRASIL INDUSTRIA E COMERCIO LTDA",
+    "Documento": "00.385.090/0001-86",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MOLYPLAST COMERCIO IMPORTACAO E EXPORTACAO LTDA",
+    "Documento": "96.576.301/0001-37",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MAG TRANSFORMADORES LTDA",
+    "Documento": "03.514.509/0001-40",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "MACOPEMA INDUSTRIA E COMERCIO LTDA",
+    "Documento": "54.614.813/0001-09",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "KROMINOX ACOS E METAIS LTDA",
+    "Documento": "01.606.452/0001-84",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "IOPE INSTRUMENTOS DE PRECISAO LTDA",
+    "Documento": "61.929.535/0001-36",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FIVES LILLE DO BRASIL LTDA",
+    "Documento": "33.257.650/0001-76",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "EQUILIBRIO BALANCEAMENTOS INDUSTRIAIS LTDA",
+    "Documento": "02.115.297/0001-66",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "AGRONN FERTILIZANTES LTDA",
+    "Documento": "04.722.196/0001-89",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SHOCK METAIS NAO FERROSOS LTDA",
+    "Documento": "54.800.768/0001-79",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PERFORTEX INDUSTRIA DE RECOBRIMENTO DE SUPERFICIE LTDA",
+    "Documento": "67.126.854/0001-90",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PARKITS VEDACOES HIDRAULICAS E PNEUMATICAS LTDA.",
+    "Documento": "04.782.537/0001-01",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "PROMOEN-EQUIPAMENTOS INDUSTRIAIS LTDA",
+    "Documento": "00.250.937/0001-15",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "RUN TIME AUTOMACAO INDUSTRIAL LTDA EM RECUPERACAO JUDICIAL",
+    "Documento": "05.880.814/0001-81",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "HENFEL INDUSTRIA METALURGICA LTDA",
+    "Documento": "43.697.556/0001-91",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "HELAMIN BRASIL - INDUSTRIA E COMERCIO LTDA.",
+    "Documento": "03.442.397/0001-60",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "GATEC S/A - GESTAO AGROINDUSTRIAL",
+    "Documento": "05.982.069/0001-81",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "FREFER PARTICIPACAO LTDA",
+    "Documento": "61.077.996/0001-28",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "LINK STEEL EQUIPAMENTOS INDUSTRIAIS LTDA",
+    "Documento": "46.889.424/0001-50",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "GEFRAN BRASIL ELETROELETRONICA LTDA",
+    "Documento": "66.538.570/0001-48",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "EBS - FABRICA DE MAQUINAS INDUSTRIAIS LTDA",
+    "Documento": "75.114.116/0001-50",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DURCON EQUIPAMENTOS INDUSTRIAIS LIMITADA",
+    "Documento": "57.948.762/0001-31",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "HOSPITAL ESPIRITA EURIPEDES BARSANULFO",
+    "Documento": "01.269.083/0001-81",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DOSITEC BOMBAS E COMPRESSORES INDUSTRIA E COMERCIO EIRELI",
+    "Documento": "66.707.654/0001-68",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DALFERINOX INDUSTRIA E COMERCIO LTDA",
+    "Documento": "57.761.975/0001-50",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CONTECH INDUSTRIA E COMERCIO DE EQUIPAMENTOS ELETRONICOS LTDA",
+    "Documento": "03.206.164/0001-68",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "CETEC - EQUIPAMENTOS PARA LABORATORIO LTDA.",
+    "Documento": "71.770.762/0001-15",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "DANA SAC SOUTH AMERICA INDUSTRIA E COMERCIO DE TRANSMISSOES LTDA",
+    "Documento": "02.232.780/0001-20",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "BRACOL COMERCIO EXTERIOR LTDA",
+    "Documento": "15.584.372/0001-80",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "ALPINA EQUIPAMENTOS INDUSTRIAIS LTDA",
+    "Documento": "55.257.034/0001-58",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "AFC DO BRASIL - INDUSTRIA DE VENTILADORES LTDA.",
+    "Documento": "03.621.818/0001-10",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "SM INDUSTRIA E COMERCIO LTDA",
+    "Documento": "59.258.939/0001-01",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TECNOPLASTICO BELFANO LTDA",
+    "Documento": "61.252.185/0001-16",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  },
+  {
+    "Nome": "TAPMATIC DO BRASIL INDUSTRIA E COMERCIO LTDA",
+    "Documento": "44.769.321/0001-20",
+    "Tipo": 2,
+    "Email": "string",
+    "Telefone": "string",
+    "DocumentoTipo": 3
+  }
+]

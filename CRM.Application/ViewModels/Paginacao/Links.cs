@@ -17,20 +17,20 @@ namespace CRM.Application.ViewModels.Paginacao
         public Links()
         {
             var httpContext = GetHttpContext();
-            Self = new Uri($"{httpContext.Request.Scheme}://{httpContext.Request.Host}{httpContext.Request.Path}");
+            Self = new Uri($"{httpContext.Request.Scheme}://{httpContext.Request.Host.Host}{httpContext.Request.Path}");
         }
 
         public Links(int? page, int? pageSize, int? totalPages = 0)
         {
             var httpContext = GetHttpContext();
-            BaseUri = new Uri($"{httpContext.Request.Scheme}://{httpContext.Request.Host}{httpContext.Request.Path}");
+            BaseUri = new Uri($"{httpContext.Request.Scheme}://{httpContext.Request.Host.Host}{httpContext.Request.Path}");
             Page = page;
             PageSize = pageSize;
             Self = GetPageUri(BaseUri, Page, PageSize);
             First = GetPageUri(BaseUri, 1, PageSize);
             Prev = Page > 1 ? GetPageUri(BaseUri, Page - 1, PageSize) : null;
             Next = Page < totalPages ? GetPageUri(BaseUri, Page + 1, PageSize) : null;
-            Last = GetPageUri(BaseUri, totalPages, PageSize);
+            Last = totalPages > 0 ? GetPageUri(BaseUri, totalPages, PageSize) : GetPageUri(BaseUri, 1, PageSize);
         }
 
         /// <summary>
