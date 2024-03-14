@@ -51,34 +51,35 @@ namespace CRM.Domain.Services
 
                         var estadoLocalidade = await localidadesService.GetEstado(dadosCNPJ.uf);
 
-                        var regiao = new Regiao() { Nome = estadoLocalidade.regiao.nome, Sigla = estadoLocalidade.regiao.sigla, Pais = pais };
+                        //var regiao = new Regiao() { Nome = estadoLocalidade.regiao.nome, Sigla = estadoLocalidade.regiao.sigla, Pais = pais };
 
-                        var estado = new Estado() { Nome = estadoLocalidade.nome, Pais = pais, Regiao = regiao, Sigla = estadoLocalidade.sigla };
+                        var regiao = regiaoRepository.GetData(estadoLocalidade.regiao.nome, estadoLocalidade.regiao.sigla, pais.Nome) ?? regiaoRepository.Create(new Regiao {Nome = estadoLocalidade.regiao.nome , Sigla = estadoLocalidade.regiao.sigla, Pais = pais});
 
-                        var municipio = new Municipio() { Nome = dadosCNPJ.municipio, Estado = estado };
+                        //var estado = new Estado() { Nome = estadoLocalidade.nome, Pais = pais, Regiao = regiao, Sigla = estadoLocalidade.sigla };
 
-                        
-                        
-                           
+                        var estado = estadoRepository.GetData(estadoLocalidade.nome, pais.Nome, regiao.Nome, estadoLocalidade.sigla) ?? estadoRepository.Create(new Estado {Nome = estadoLocalidade.nome, Pais = pais, Regiao = regiao, Sigla = estadoLocalidade.sigla });
 
-                        
-                        var regiaoExistente = regiaoRepository.Query(x => !x.IsDeleted && x.Nome == regiao.Nome && x.Sigla == regiao.Sigla && x.Pais.Nome == regiao.Pais.Nome);
-                        if (regiaoExistente.Count() == 0)
-                            regiaoRepository.Create(regiao);
-                        else
-                            regiao = regiaoExistente.FirstOrDefault();
+                        //var municipio = new Municipio() { Nome = dadosCNPJ.municipio, Estado = estado };
 
-                        var estadoExistente = estadoRepository.Query(x => !x.IsDeleted && x.Nome == estado.Nome && x.Sigla == estado.Sigla && x.Regiao.Nome == estado.Regiao.Nome && x.Pais.Nome == estado.Pais.Nome);
-                        if (estadoExistente.Count() == 0)
-                            estadoRepository.Create(estado);
-                        else
-                            estado = estadoExistente.FirstOrDefault();
+                        var municipio = municipioRepository.GetData(dadosCNPJ.municipio, estado.Nome) ?? municipioRepository.Create(new Municipio { Nome = dadosCNPJ.municipio, Estado = estado});
 
-                        var municipioExistente = municipioRepository.Query(x => !x.IsDeleted && x.Nome == municipio.Nome && x.Estado.Sigla == municipio.Estado.Sigla);
-                        if (municipioExistente.Count() == 0)
-                            municipioRepository.Create(municipio);
-                        else
-                            municipio = municipioExistente.FirstOrDefault();
+                        //var regiaoExistente = regiaoRepository.Query(x => !x.IsDeleted && x.Nome == regiao.Nome && x.Sigla == regiao.Sigla && x.Pais.Nome == regiao.Pais.Nome);
+                        //if (regiaoExistente.Count() == 0)
+                        //    regiaoRepository.Create(regiao);
+                        //else
+                        //    regiao = regiaoExistente.FirstOrDefault();
+
+                        //var estadoExistente = estadoRepository.Query(x => !x.IsDeleted && x.Nome == estado.Nome && x.Sigla == estado.Sigla && x.Regiao.Nome == estado.Regiao.Nome && x.Pais.Nome == estado.Pais.Nome);
+                        //if (estadoExistente.Count() == 0)
+                        //    estadoRepository.Create(estado);
+                        //else
+                        //    estado = estadoExistente.FirstOrDefault();
+
+                        //var municipioExistente = municipioRepository.Query(x => !x.IsDeleted && x.Nome == municipio.Nome && x.Estado.Sigla == municipio.Estado.Sigla);
+                        //if (municipioExistente.Count() == 0)
+                        //    municipioRepository.Create(municipio);
+                        //else
+                        //    municipio = municipioExistente.FirstOrDefault(); 
 
                         var pessoaEndereco = new PessoaEndereco()
                         {

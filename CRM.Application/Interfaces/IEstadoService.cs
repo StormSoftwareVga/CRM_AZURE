@@ -13,5 +13,7 @@ namespace CRM.Application.Interfaces
     public interface IEstadoService : IBaseService<Estado, EstadoViewModel>
     {
         bool Post(EstadoViewModel viewModel);
+
+
     }
 }

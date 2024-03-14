@@ -16,13 +16,43 @@ namespace CRM.Data.Repositories
         {
 
         }
-        public IEnumerable<Municipio> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<Municipio> GetAll()
         {
             try
             {
                 return (from municipio in _context.Set<Municipio>().AsQueryable()
                         where municipio.IsDeleted == false
-                        select municipio).DataPaged(page, pageSize);
+                        select municipio);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+        public Municipio GetById(Guid id)
+        {
+            try
+            {
+                return (from municipios in _context.Set<Municipio>().AsQueryable()
+                        where municipios.IsDeleted == false && id == municipios.Id
+                        select municipios).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+        public Municipio? GetData(string municipioNome, string estado)
+        {
+            try
+            {
+                return (from municipio in _context.Set<Municipio>().AsQueryable()
+                        where municipio.IsDeleted == false
+                        && municipio.Nome == municipioNome
+                        && municipio.Estado.Nome == estado
+                        select municipio).FirstOrDefault();
             }
             catch (Exception ex)
             {

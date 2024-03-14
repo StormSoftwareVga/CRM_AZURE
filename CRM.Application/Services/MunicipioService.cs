@@ -2,8 +2,10 @@
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Municipio;
+using CRM.Application.ViewModels.Pessoa;
 using CRM.Domain;
 using CRM.Domain.Core;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,12 +40,12 @@ namespace CRM.Application.Services
             return this.municipioRepository.Delete(_municipio);
         }
 
-        public IEnumerable<MunicipioViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<MunicipioViewModel> GetAll()
         {
             try
             {
                 Log.Information("GetAll");
-                IEnumerable<Municipio> _municipio = municipioRepository.GetAll(page, pageSize);
+                IEnumerable<Municipio> _municipio = municipioRepository.GetAll();
 
                 var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
 
@@ -55,30 +57,34 @@ namespace CRM.Application.Services
                 throw ex;
 
             }
-            //IEnumerable<Municipio> _municipio = this.municipioRepository.Query(x => !x.IsDeleted);
-
-
-            //var _municipioViewModel = mapper.Map<List<MunicipioViewModel>>(_municipio);
-
-            //return _municipioViewModel;
-        }
-
-        public IEnumerable<MunicipioViewModel> GetAll()
-        {
-            throw new NotImplementedException();
+           
         }
 
         public MunicipioViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do Municipio é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid municipioID))
+                    throw new PortalHttpException("ID do Municipio é inválido!");
 
-            Municipio _municipio = this.municipioRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Municipio _municipio = municipioRepository.GetById(municipioID);
 
-            if (null == _municipio)
-                throw new Exception("Municipio não encontrado");
+                var _municipioViewModel = mapper.Map<MunicipioViewModel>(_municipio);
+                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
-            return mapper.Map<MunicipioViewModel>(_municipio);
+                if (null == _municipio)
+                    throw new PortalHttpException("Municipio não encontrado");
+
+                return _municipioViewModel;
+                //return mapper.Map<PessoaViewModel>(_pessoa);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+
         }
 
         public bool Post(MunicipioViewModel viewModel)

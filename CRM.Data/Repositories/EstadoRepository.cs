@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CRM.Utils;
 using CRM.Domain.Core;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace CRM.Data.Repositories
 {
@@ -16,18 +17,52 @@ namespace CRM.Data.Repositories
         {
         }
 
-        public IEnumerable<Estado> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<Estado> GetAll()
         {
             try
             {
                 return (from estado in _context.Set<Estado>().AsQueryable()
                         where estado.IsDeleted == false
-                        select estado).DataPaged(page, pageSize);
+                        select estado);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
                 throw ex;
+            }
+        }
+
+        public Estado GetById(Guid id)
+        {
+            try
+            {
+                return (from estados in _context.Set<Estado>().AsQueryable()
+                        where estados.IsDeleted == false && id == estados.Id
+                        select estados).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public Estado? GetData(string nome, string pais, string regiao, string sigla)
+        {
+            try
+            {
+                return (from estado in _context.Set<Estado>().AsQueryable()
+                        where estado.IsDeleted == false 
+                        && estado.Nome == nome 
+                        && estado.Pais.Nome == pais
+                        && estado.Regiao.Nome == regiao
+                        && estado.Sigla == sigla
+                        select estado).FirstOrDefault();
+            }
+            catch(Exception ex) 
+            { 
+            Log.Error(ex);
+            throw ex;
             }
         }
     }
