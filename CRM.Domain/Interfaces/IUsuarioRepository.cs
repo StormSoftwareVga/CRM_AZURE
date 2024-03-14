@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CRM.Domain
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
-        IEnumerable<Usuario> GetAll(int? page = 0, int? pageSize = 0);
+        IEnumerable<Usuario> GetAll();
+        public Usuario GetById(Guid id);
+
     }
 }

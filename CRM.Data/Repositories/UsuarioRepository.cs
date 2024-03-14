@@ -17,13 +17,28 @@ namespace CRM.Data
 
         }
 
-        public IEnumerable<Usuario> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<Usuario> GetAll()
         {
             try
             {
-                return (from usuario in _context.Set<Usuario>().AsQueryable()
-                        where usuario.IsDeleted == false
-                        select usuario).DataPaged(page, pageSize);
+                return (from usuarios in _context.Set<Usuario>().AsQueryable()
+                        where usuarios.IsDeleted == false
+                        select usuarios);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public Usuario GetById(Guid id)
+        {
+            try
+            {
+                return (from usuarios in _context.Set<Usuario>().AsQueryable()
+                        where usuarios.IsDeleted == false && id == usuarios.Id
+                        select usuarios).FirstOrDefault();
             }
             catch (Exception ex)
             {

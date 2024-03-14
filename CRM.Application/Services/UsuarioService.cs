@@ -24,12 +24,12 @@ namespace CRM.Application
             this.mapper = mapper;
         }
 
-        public IEnumerable<GetUsuarioViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<GetUsuarioViewModel> GetAll()
         {
             try
             {
                 Log.Information("GetAll");
-                IEnumerable<Usuario> _usuario = usuarioRepository.GetAll(page, pageSize);
+                IEnumerable<Usuario> _usuario = usuarioRepository.GetAll();
 
                 var _usuarioViewModel = mapper.Map<IEnumerable<GetUsuarioViewModel>>(_usuario);
 
@@ -39,20 +39,31 @@ namespace CRM.Application
             {
                 Log.Error(ex, ex.Message);
                 throw ex;
-
             }
         }
+
         public GetUsuarioViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do usuário é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid usuarioID))
+                    throw new PortalHttpException("ID do usuário é inválido!");
 
-            Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Usuario _usuario = usuarioRepository.GetById(usuarioID);
 
-            if (null == _usuario)
-                throw new Exception("Usuário não encontrado");
+                var _usuarioViewModel = mapper.Map<GetUsuarioViewModel>(_usuario);
 
-            return mapper.Map<GetUsuarioViewModel>(_usuario);
+                if (null == _usuario)
+                    throw new PortalHttpException("Usuário não encontrado");
+
+                return _usuarioViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Post(CreateUsuarioViewModel usuarioViewModel)
@@ -131,11 +142,6 @@ namespace CRM.Application
         }
 
         UsuarioViewModel IBaseService<Usuario, UsuarioViewModel>.GetById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<UsuarioViewModel> GetAll()
         {
             throw new NotImplementedException();
         }

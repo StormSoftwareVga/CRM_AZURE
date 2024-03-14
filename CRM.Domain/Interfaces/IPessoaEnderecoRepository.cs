@@ -8,5 +8,7 @@ namespace CRM.Domain.Interfaces
 {
     public interface IPessoaEnderecoRepository : IRepository<PessoaEndereco>
     {
+        IEnumerable<PessoaEndereco> GetAll();
+        public PessoaEndereco GetById(Guid id);
     }
 }

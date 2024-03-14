@@ -6,7 +6,7 @@ namespace CRM.Application
 {
     public interface IUsuarioService: IBaseService<Usuario, UsuarioViewModel>
     {
-        new IEnumerable<GetUsuarioViewModel> GetAll(int? page = 0, int? pageSize = 0);
+        new IEnumerable<GetUsuarioViewModel> GetAll();
         GetUsuarioViewModel GetById(string id);
         bool Post(CreateUsuarioViewModel usuarioViewModel);
         bool Put(UsuarioViewModel usuarioViewModel);

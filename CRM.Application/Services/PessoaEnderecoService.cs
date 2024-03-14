@@ -2,7 +2,10 @@
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels.PessoaEndereco;
 using CRM.Domain;
+using CRM.Domain.Core;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,31 +39,69 @@ namespace CRM.Application.Services
             return this.pessoaEnderecoRepository.Delete(_pessoaEndereco);
         }
 
-        public IEnumerable<PessoaEnderecoViewModel> GetAll(int? page = 0, int? pageSize = 0)
-        {
-            IEnumerable<PessoaEndereco> _pessoaEndereco = this.pessoaEnderecoRepository.Query(x => !x.IsDeleted);
+        //public IEnumerable<PessoaEnderecoViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        //{
+        //    IEnumerable<PessoaEndereco> _pessoaEndereco = this.pessoaEnderecoRepository.Query(x => !x.IsDeleted);
 
-            var _pessoaEnderecoViewModel = mapper.Map<List<PessoaEnderecoViewModel>>(_pessoaEndereco);
+        //    var _pessoaEnderecoViewModel = mapper.Map<List<PessoaEnderecoViewModel>>(_pessoaEndereco);
 
-            return _pessoaEnderecoViewModel;
-        }
+        //    return _pessoaEnderecoViewModel;
+        //}
 
         public IEnumerable<PessoaEnderecoViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                Log.Information("GetAll");
+                IEnumerable<PessoaEndereco> _pessoaEndereco = pessoaEnderecoRepository.GetAll();
+
+                var _pessoaEnderecoViewModel = mapper.Map<IEnumerable<PessoaEnderecoViewModel>>(_pessoaEndereco);
+
+                return _pessoaEnderecoViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+
+            }
         }
+
+        //public PessoaEnderecoViewModel GetById(string id)
+        //{
+        //    if (!Guid.TryParse(id, out Guid usuarioID))
+        //        throw new Exception("ID do PessoaEndereco é inválido!");
+
+        //    PessoaEndereco _pessoaEndereco = this.pessoaEnderecoRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+
+        //    if (null == _pessoaEndereco)
+        //        throw new Exception("PessoaEndereco não encontrado");
+
+        //    return mapper.Map<PessoaEnderecoViewModel>(_pessoaEndereco);
+        //}
 
         public PessoaEnderecoViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do PessoaEndereco é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid usuarioID))
+                    throw new PortalHttpException("ID do PessoaEndereco é inválido!");
 
-            PessoaEndereco _pessoaEndereco = this.pessoaEnderecoRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                PessoaEndereco _pessoaEndereco = pessoaEnderecoRepository.GetById(usuarioID);
 
-            if (null == _pessoaEndereco)
-                throw new Exception("PessoaEndereco não encontrado");
+                var _pessoaEnderecoViewModel = mapper.Map<PessoaEnderecoViewModel>(_pessoaEndereco);
 
-            return mapper.Map<PessoaEnderecoViewModel>(_pessoaEndereco);
+                if (null == _pessoaEndereco)
+                    throw new PortalHttpException("PessoaEndereço não encontrado");
+
+                return _pessoaEnderecoViewModel;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Post(PessoaEnderecoViewModel viewModel)
