@@ -35,7 +35,22 @@ namespace CRM.Controllers
             return Ok(result, page, pageSize);
         }
 
-        [HttpGet("{id}")]
+        /// <summary>
+        /// Obtém uma país com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Obtém uma país com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Obtém uma país com base no ID passado no sistema</returns>
+        [HttpGet("{id}"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<PaisViewModel>), 200)]
+        public IActionResult GetById(string id)
+        {
+            var result = paisService.GetById(id);
+
+            return Ok(result);
+        }
         public IActionResult GetById(Guid id)
         {
             return Ok(paisService.GetById(id.ToString()));

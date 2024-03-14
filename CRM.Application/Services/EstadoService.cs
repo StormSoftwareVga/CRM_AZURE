@@ -2,8 +2,10 @@
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Estado;
+using CRM.Application.ViewModels.Pessoa;
 using CRM.Domain;
 using CRM.Domain.Core;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -38,12 +40,12 @@ namespace CRM.Application.Services
             return this.estadoRepository.Delete(_estado);
         }
 
-        public IEnumerable<EstadoViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<EstadoViewModel> GetAll()
         {
             try
             {
                 Log.Information("GetAll");
-                IEnumerable<Estado> _estado = estadoRepository.GetAll(page, pageSize);
+                IEnumerable<Estado> _estado = estadoRepository.GetAll();
 
                 var _estadoViewModel = mapper.Map<List<EstadoViewModel>>(_estado);
 
@@ -56,29 +58,33 @@ namespace CRM.Application.Services
 
             }
 
-            //IEnumerable<Estado> _estado = this.estadoRepository.Query(x => !x.IsDeleted);
-
-            //var _estadoViewModel = mapper.Map<List<EstadoViewModel>>(_estado);
-
-            //return _estadoViewModel;
-        }
-
-        public IEnumerable<EstadoViewModel> GetAll()
-        {
-            throw new NotImplementedException();
         }
 
         public EstadoViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do Estado é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid estadoID))
+                    throw new PortalHttpException("ID do Estado é inválido!");
 
-            Estado _estado = this.estadoRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Estado _estado = estadoRepository.GetById(estadoID);
 
-            if (null == _estado)
-                throw new Exception("Estado não encontrado");
+                var _estadoViewModel = mapper.Map<EstadoViewModel>(_estado);
+                
 
-            return mapper.Map<EstadoViewModel>(_estado);
+                if (null == _estado)
+                    throw new PortalHttpException("Estado não encontrado");
+
+                return _estadoViewModel;
+                
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+
         }
 
         public bool Post(EstadoViewModel viewModel)

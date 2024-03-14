@@ -8,7 +8,10 @@ namespace CRM.Domain.Interfaces
 {
     public interface IEstadoRepository : IRepository<Estado>
     {
+        IEnumerable<Estado> GetAll();
 
-        IEnumerable<Estado> GetAll(int? page = 0, int? pageSize = 0);
+        Estado GetById(Guid id);
+
+        Estado? GetData(string nome, string pais, string regiao, string sigla);
     }
 }

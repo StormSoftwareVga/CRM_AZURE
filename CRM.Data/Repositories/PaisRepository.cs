@@ -17,19 +17,36 @@ namespace CRM.Data
         {
 
         }
-        public IEnumerable<Pais> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<Pais> GetAll()
         {
             try
             {
                 return (from pais in _context.Set<Pais>().AsQueryable()
                         where pais.IsDeleted == false
-                        select pais).DataPaged(page, pageSize);
+                        select pais);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
                 throw ex;
             }
+        }
+
+        public Pais GetById(Guid id)
+        {
+            try
+            {
+                return(from pais in _context.Set<Pais>().AsQueryable()
+                       where pais.IsDeleted == false && id == pais.Id
+                       select pais).FirstOrDefault();
+
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex);
+                   throw ex;
+            }
+
         }
 
         public Pais? GetByName(string name)

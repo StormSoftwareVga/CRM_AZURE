@@ -33,8 +33,6 @@ namespace CRM.Data
         {
             try
             {
-
-                
                 return (from pessoas in _context.Set<Pessoa>().AsQueryable()
                                  where pessoas.IsDeleted == false && id == pessoas.Id
                                  select pessoas).FirstOrDefault();

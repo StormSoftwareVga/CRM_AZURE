@@ -16,27 +16,38 @@ namespace CRM.Controllers
             this.estadoService = estadoService;
         }
         /// <summary>
-        /// Obtém a lista de país cadastrados no sistema
+        /// Obtém a lista de estados cadastrados no sistema
         /// </summary>
         /// <remarks>
-        /// Obtém a lista de país cadastrados no sistema
+        /// Obtém a lista de estados cadastrados no sistema
         /// </remarks>
         /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
         /// <param name="page">Page</param>
         /// <param name="pageSize">Pagesize</param>
-        /// <returns>Lista de país cadastrados no sistema</returns>
+        /// <returns>Lista de estados cadastrados no sistema</returns>
         [HttpGet, AllowAnonymous]
         [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<IEnumerable<EstadoViewModel>>), 200)]
-        public IActionResult Get (int? page = 1, int? pageSize = 25)
+        public IActionResult Get(int? page = 1, int? pageSize = 25)
         {
             var result = estadoService.GetAll();
             return Ok(result, page, pageSize);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(Guid id)
+        /// <summary>
+        /// Obtém um estado com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Obtém um estado com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Obtém um estado com base no ID passado no sistema</returns>
+        [HttpGet("{id}"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<EstadoViewModel>), 200)]
+        public IActionResult GetById(string id)
         {
-            return Ok(estadoService.GetById(id.ToString()));
+            var result = estadoService.GetById(id);
+
+            return Ok(result);
         }
         [HttpPost]
 

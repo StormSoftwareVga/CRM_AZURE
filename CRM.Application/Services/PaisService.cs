@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels;
+using CRM.Application.ViewModels.Municipio;
+using CRM.Application.ViewModels.Pessoa;
 using CRM.Domain;
 using CRM.Domain.Core;
+using CRM.Domain.Core.CrmException;
 using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -37,12 +40,12 @@ namespace CRM.Application.Services
             return this.paisRepository.Delete(_pais);
         }
 
-        public IEnumerable<PaisViewModel> GetAll(int? page = 0, int? pageSize = 0)
+        public IEnumerable<PaisViewModel> GetAll()
         {
             try
             {
                 Log.Information("GetAll");
-                IEnumerable<Pais> _pais = paisRepository.GetAll(page, pageSize);
+                IEnumerable<Pais> _pais = paisRepository.GetAll();
 
                 var _paisViewModel = mapper.Map<List<PaisViewModel>>(_pais);
 
@@ -55,29 +58,34 @@ namespace CRM.Application.Services
             
             }
 
-            //IEnumerable<Pais> _pais = this.paisRepository.Query(x => !x.IsDeleted);
-
-            //var _paisViewModel = mapper.Map<List<PaisViewModel>>(_pais);
-
-            //return _paisViewModel;
-        }
-
-        public IEnumerable<PaisViewModel> GetAll()
-        {
-            throw new NotImplementedException();
+          
         }
 
         public PaisViewModel GetById(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do Pais é inválido!");
+            try
+            {
+                Log.Information("GetById");
+                if (!Guid.TryParse(id, out Guid paisID))
+                    throw new PortalHttpException("ID do País é inválido!");
 
-            Pais _pais = this.paisRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Pais _pais = paisRepository.GetById(paisID);
 
-            if (null == _pais)
-                throw new Exception("Pais não encontrado");
+                var _paisViewModel = mapper.Map<PaisViewModel>(_pais);
+                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
 
-            return mapper.Map<PaisViewModel>(_pais);
+                if (null == _pais)
+                    throw new PortalHttpException("País não encontrado");
+
+                return _paisViewModel;
+                //return mapper.Map<PessoaViewModel>(_pessoa);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+
         }
 
         public bool Post(PaisViewModel viewModel)
