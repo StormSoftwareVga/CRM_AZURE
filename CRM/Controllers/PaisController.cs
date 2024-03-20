@@ -51,10 +51,6 @@ namespace CRM.Controllers
 
             return Ok(result);
         }
-        public IActionResult GetById(Guid id)
-        {
-            return Ok(paisService.GetById(id.ToString()));
-        }
 
         [HttpPost]
 

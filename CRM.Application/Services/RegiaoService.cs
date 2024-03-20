@@ -71,13 +71,12 @@ namespace CRM.Application.Services
                 Regiao _regiao = regiaoRepository.GetById(regiaoID);
 
                 var _regiaoViewModel = mapper.Map<RegiaoViewModel>(_regiao);
-                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
-
+              
                 if (null == _regiao)
                     throw new PortalHttpException("Região não encontrado");
 
                 return _regiaoViewModel;
-                //return mapper.Map<PessoaViewModel>(_pessoa);
+                
             }
             catch (Exception ex)
             {

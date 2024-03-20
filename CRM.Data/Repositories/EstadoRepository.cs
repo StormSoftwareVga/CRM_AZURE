@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CRM.Utils;
 using CRM.Domain.Core;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using CRM.Application.ViewModels.Estado;
 
 namespace CRM.Data.Repositories
 {
@@ -21,9 +22,9 @@ namespace CRM.Data.Repositories
         {
             try
             {
-                return (from estado in _context.Set<Estado>().AsQueryable()
-                        where estado.IsDeleted == false
-                        select estado);
+                return (from estados in _context.Set<Estado>().AsQueryable()
+                        where estados.IsDeleted == false
+                        select estados);
             }
             catch (Exception ex)
             {
@@ -46,6 +47,30 @@ namespace CRM.Data.Repositories
                 throw ex;
             }
         }
+
+        public Estado GetByName(string nome)
+        {
+            try
+            {
+
+
+               return (from estados in _context.Set<Estado>().AsQueryable()
+                             where estados.Nome == nome
+                             select estados).FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex);
+                throw ex;
+
+            }
+        }
+
+        
+
+       
 
         public Estado? GetData(string nome, string pais, string regiao, string sigla)
         {

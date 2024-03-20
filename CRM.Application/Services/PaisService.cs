@@ -72,13 +72,13 @@ namespace CRM.Application.Services
                 Pais _pais = paisRepository.GetById(paisID);
 
                 var _paisViewModel = mapper.Map<PaisViewModel>(_pais);
-                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+          
 
                 if (null == _pais)
                     throw new PortalHttpException("País não encontrado");
 
                 return _paisViewModel;
-                //return mapper.Map<PessoaViewModel>(_pessoa);
+                
             }
             catch (Exception ex)
             {

@@ -58,13 +58,13 @@ namespace CRM.Application
                 Pessoa _pessoa = pessoaRepository.GetById(usuarioID);
 
                 var _pessoaViewModel = mapper.Map<PessoaViewModel>(_pessoa);
-                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+              
 
                 if (null == _pessoa)
                     throw new PortalHttpException("Pessoa não encontrada");
 
                 return _pessoaViewModel;
-                //return mapper.Map<PessoaViewModel>(_pessoa);
+              
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace CRM.Application
 
         public bool Post(PessoaViewModel viewModel)
         {
-            //return Post(mapper.Map<CreatePessoaViewModel>(viewModel));
+       
             Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
             var _pessoa = mapper.Map<Pessoa>(viewModel);

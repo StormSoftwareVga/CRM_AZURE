@@ -29,15 +29,26 @@ namespace CRM.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID do Estado é inválido!");
+            try
+            {
+                Log.Information("Delete");
 
-            Estado _estado = this.estadoRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID do Estado é inválido!");
 
-            if (null == _estado)
-                throw new Exception("Estado não encontrado");
+                Estado _estado = estadoRepository.GetById(ID);
 
-            return this.estadoRepository.Delete(_estado);
+                if (null == _estado)
+                    throw new Exception("Estado não encontrado");
+
+                return estadoRepository.Delete(_estado);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+            
         }
 
         public IEnumerable<EstadoViewModel> GetAll()
@@ -89,38 +100,58 @@ namespace CRM.Application.Services
 
         public bool Post(EstadoViewModel viewModel)
         {
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
-
-            var _estado = mapper.Map<Estado>(viewModel);
-
-            var EstadoJaExiste = this.estadoRepository.Find(x => x.Nome.ToLower() == viewModel.Nome.ToLower());
-            if (EstadoJaExiste == null)
+            try
             {
-                this.estadoRepository.Create(_estado);
+                Log.Information("Post");
+                Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
-                return true;
+                var _estado = mapper.Map<Estado>(viewModel);
+
+
+                var estadoJaExiste = estadoRepository.GetByName(viewModel.Nome);
+                if (estadoJaExiste == null)
+                {
+                    estadoRepository.Create(_estado);
+
+                    return true;
+                }
+
+                return false;
+
             }
-
-            return false;
+            catch(Exception ex) 
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(EstadoViewModel viewModel)
         {
-            if (viewModel.Id == Guid.Empty)
-                throw new Exception("ID do Estado é inválido!");
+            try
+            {
+                Log.Information("Put");
+                if (viewModel.Id == Guid.Empty)
+                    throw new Exception("ID do Estado é inválido!");
 
-            Estado _estado = this.estadoRepository.Find(x => x.Id == viewModel.Id && !x.IsDeleted);
+                Estado _estado = estadoRepository.GetById(viewModel.Id);
 
-            if (null == _estado)
-                throw new Exception("Estado não encontrado");
+                if (_estado == null)
+                    throw new Exception("Estado não encontrado");
 
-            _estado = mapper.Map<Estado>(viewModel);
+                _estado = mapper.Map<Estado>(viewModel);
 
-            _estado.DataAlteracao = DateTime.Now;
+                _estado.DataAlteracao = DateTime.Now;
 
-            this.estadoRepository.Update(_estado);
+                estadoRepository.Update(_estado);
 
-            return true;
+                return true;
+            }
+            catch (Exception ex) 
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
     }
 }

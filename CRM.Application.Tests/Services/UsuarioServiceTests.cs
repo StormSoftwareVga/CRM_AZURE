@@ -66,7 +66,7 @@ namespace CRM.Application.Tests
 
             //Criando um objeto mock do UserRepository e configurando para retornar a lista criada anteriormente se chamar o método GetAll()
             var _userRepository = new Mock<IUsuarioRepository>();
-            _userRepository.Setup(x => x.GetAll(1,25)).Returns(_usuarios);
+            _userRepository.Setup(x => x.GetAll()).Returns(_usuarios);
 
             //Criando um objeto mock do AutoMapper para que possamos converter o retorno para o tipo List<UserViewModel>()
             var _autoMapperProfile = new AutoMapperSetup();

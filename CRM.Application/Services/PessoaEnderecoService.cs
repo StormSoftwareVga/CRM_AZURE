@@ -39,14 +39,7 @@ namespace CRM.Application.Services
             return this.pessoaEnderecoRepository.Delete(_pessoaEndereco);
         }
 
-        //public IEnumerable<PessoaEnderecoViewModel> GetAll(int? page = 0, int? pageSize = 0)
-        //{
-        //    IEnumerable<PessoaEndereco> _pessoaEndereco = this.pessoaEnderecoRepository.Query(x => !x.IsDeleted);
 
-        //    var _pessoaEnderecoViewModel = mapper.Map<List<PessoaEnderecoViewModel>>(_pessoaEndereco);
-
-        //    return _pessoaEnderecoViewModel;
-        //}
 
         public IEnumerable<PessoaEnderecoViewModel> GetAll()
         {
@@ -67,18 +60,7 @@ namespace CRM.Application.Services
             }
         }
 
-        //public PessoaEnderecoViewModel GetById(string id)
-        //{
-        //    if (!Guid.TryParse(id, out Guid usuarioID))
-        //        throw new Exception("ID do PessoaEndereco é inválido!");
 
-        //    PessoaEndereco _pessoaEndereco = this.pessoaEnderecoRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
-
-        //    if (null == _pessoaEndereco)
-        //        throw new Exception("PessoaEndereco não encontrado");
-
-        //    return mapper.Map<PessoaEnderecoViewModel>(_pessoaEndereco);
-        //}
 
         public PessoaEnderecoViewModel GetById(string id)
         {

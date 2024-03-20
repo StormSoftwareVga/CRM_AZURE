@@ -71,13 +71,13 @@ namespace CRM.Application.Services
                 Municipio _municipio = municipioRepository.GetById(municipioID);
 
                 var _municipioViewModel = mapper.Map<MunicipioViewModel>(_municipio);
-                //Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+             
 
                 if (null == _municipio)
                     throw new PortalHttpException("Municipio não encontrado");
 
                 return _municipioViewModel;
-                //return mapper.Map<PessoaViewModel>(_pessoa);
+                
             }
             catch (Exception ex)
             {

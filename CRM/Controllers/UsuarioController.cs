@@ -60,12 +60,6 @@ namespace ApiSpa.Controllers
 
             return Ok(result);
         }
-
-        //[HttpGet("{id}")]
-        //public IActionResult GetById(string id)
-        //{
-        //    return Ok(this.usuarioService.GetById(id));
-        //}
          
         [HttpPost]
         public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
