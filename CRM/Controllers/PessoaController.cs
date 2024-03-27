@@ -52,22 +52,52 @@ namespace CRM.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Insere uma pessoa com base nos dados passados no json
+        /// </summary>
+        /// <remarks>
+        /// Insere uma pessoa com base nos dados passados no json
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Insere uma pessoa com base nos dados passados no json</returns>
+        [HttpPost, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<PessoaViewModel>), 200)]
         public IActionResult Post(CreatePessoaViewModel pessoaViewModel)
         { 
-            return Ok(this.pessoaService.Post(pessoaViewModel));
+            var result = pessoaService.Post(pessoaViewModel);
+            return Ok(result);
         }
 
-        [HttpPut]
+        /// <summary>
+        /// Edita uma pessoa com base nos dados passados no json
+        /// </summary>
+        /// <remarks>
+        /// Edita uma pessoa com base nos dados passados no json
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Edita uma pessoa com base nos dados passados no json</returns>
+        [HttpPut, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<PessoaViewModel>), 200)]
         public IActionResult Put(PessoaViewModel pessoaViewModel)
         {
-            return Ok(this.pessoaService.Put(pessoaViewModel));
+            var result = pessoaService.Put(pessoaViewModel);
+            return Ok(result);
         }
 
-        [HttpDelete("{id}")]
+        /// <summary>
+        /// Deleta uma pessoa com base nos dados passados no json
+        /// </summary>
+        /// <remarks>
+        /// Deleta uma pessoa com base nos dados passados no json
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Deleta uma pessoa com base nos dados passados no json</returns>
+        [HttpDelete("{id}"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<PessoaViewModel>), 200)]
         public IActionResult Delete(string id)
         {
-            return Ok(this.pessoaService.Delete(id));
+            var result = pessoaService.Delete(id);
+            return Ok(result);
         }
     }
 

@@ -60,14 +60,36 @@ namespace ApiSpa.Controllers
 
             return Ok(result);
         }
-         
-        [HttpPost]
+
+        /// <summary>
+        /// Insere um usuário com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Insere um usuário com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Insere um usuário com base no ID passado no sistema</returns>
+        [HttpPost, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<GetUsuarioViewModel>), 200)]
         public IActionResult Post(CreateUsuarioViewModel usuarioViewModel)
         {
             return Ok(this.usuarioService.Post(usuarioViewModel));
         }
 
+        /// <summary>
+        /// Gera um token para autenticação
+        /// </summary>
+        /// <remarks>
+        /// Gera um token para autenticação
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Gera um token para autenticação</returns>
         [HttpPost("autenticate"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<GetUsuarioViewModel>), 200)]
         public IActionResult Autenticar(UserAuthenticateRequestViewModel usuarioViewModel)
         {
             try { 
@@ -78,22 +100,54 @@ namespace ApiSpa.Controllers
             }
         }
 
-        [HttpPut]
+        /// <summary>
+        /// Edita um usuário com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Edita um usuário com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Edita um usuário com base no ID passado no sistema</returns>
+        [HttpPut, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<GetUsuarioViewModel>), 200)]
         public IActionResult Put(UsuarioViewModel usuarioViewModel)
         {
             return Ok(this.usuarioService.Put(usuarioViewModel));
         }
 
-        [HttpDelete]
+        /// <summary>
+        /// Deleta o usuário logado
+        /// </summary>
+        /// <remarks>
+        /// Deleta o usuário logado
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Deleta o usuário logado</returns>
+        [HttpDelete, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<GetUsuarioViewModel>), 200)]
         public IActionResult Delete()
         { 
             var _idUsuario = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
             return Ok(this.usuarioService.Delete(_idUsuario));
-
         }
 
-        [HttpDelete("{userId}")]
+        /// <summary>
+        /// Deleta um usuário com base no ID passado no sistema
+        /// </summary>
+        /// <remarks>
+        /// Deleta um usuário com base no ID passado no sistema
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <param name="page">Page</param>
+        /// <param name="pageSize">Pagesize</param>
+        /// <returns>Deleta um usuário com base no ID passado no sistema</returns>
+        [HttpDelete("{id}"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<GetUsuarioViewModel>), 200)]
         public IActionResult Delete(string userId)
         {
             return Ok(this.usuarioService.Delete(userId));

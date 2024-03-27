@@ -46,5 +46,20 @@ namespace CRM.Data
                 throw ex;
             }
         }
+
+        public Usuario GetByEmail(string email)
+        {
+            try
+            {
+                return (from usuarios in _context.Set<Usuario>().AsQueryable()
+                        where usuarios.IsDeleted == false && usuarios.Email == email
+                        select usuarios).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
     }
 }

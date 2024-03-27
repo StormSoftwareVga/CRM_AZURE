@@ -67,55 +67,81 @@ namespace CRM.Application
         }
 
         public bool Post(CreateUsuarioViewModel usuarioViewModel)
-        { 
-            Validator.ValidateObject(usuarioViewModel, new ValidationContext(usuarioViewModel), true);
-
-            var _usuario = mapper.Map<Usuario>(usuarioViewModel);
-
-            var usuarioJaExiste = this.usuarioRepository.Find(x => x.Email.ToLower() == usuarioViewModel.Email.ToLower());
-            if(usuarioJaExiste == null)
+        {
+            try
             {
-                this.usuarioRepository.Create(_usuario);
+                Log.Information("Post");
+                Validator.ValidateObject(usuarioViewModel, new ValidationContext(usuarioViewModel), true);
 
-                return true;
+                var _usuario = mapper.Map<Usuario>(usuarioViewModel);
+
+                var usuarioJaExiste = usuarioRepository.GetByEmail(usuarioViewModel.Email);
+                if (usuarioJaExiste == null)
+                {
+                    this.usuarioRepository.Create(_usuario);
+
+                    return true;
+                }
+
+                return false;
             }
-
-            return false;
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
 
         }
 
         public bool Put(UsuarioViewModel usuarioViewModel)
         {
-            if (usuarioViewModel.Id == Guid.Empty)
-                throw new Exception("ID do usuário é inválido!");
+            try
+            {
+                Log.Information("Put");
+                if (usuarioViewModel.Id == Guid.Empty)
+                    throw new Exception("ID do usuário é inválido!");
 
-            Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioViewModel.Id && !x.IsDeleted);
-            
-            if (null == _usuario)
-                throw new Exception("Usuário não encontrado");
+                Usuario _usuario = usuarioRepository.GetByEmail(usuarioViewModel.Email);
 
-            _usuario.Nome = usuarioViewModel.Nome;
-            _usuario.Email = usuarioViewModel.Email;
+                if (null == _usuario)
+                    throw new Exception("Usuário não encontrado");
 
-            _usuario.DataAlteracao = DateTime.Now;
+                _usuario.Nome = usuarioViewModel.Nome;
+                _usuario.Email = usuarioViewModel.Email;
 
-            this.usuarioRepository.Update(_usuario);
+                _usuario.DataAlteracao = DateTime.Now;
 
-            return true;
+                this.usuarioRepository.Update(_usuario);
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid usuarioID))
-                throw new Exception("ID do usuário é inválido!");
+            try
+            {
+                Log.Information("Delete");
+                if (!Guid.TryParse(id, out Guid usuarioID))
+                    throw new Exception("ID do usuário é inválido!");
 
-            Usuario _usuario = this.usuarioRepository.Find(x => x.Id == usuarioID && !x.IsDeleted);
+                Usuario _usuario = usuarioRepository.GetById(usuarioID);
 
-            if (null == _usuario)
-                throw new Exception("Usuário não encontrado");
+                if (null == _usuario)
+                    throw new Exception("Usuário não encontrado");
 
-            return this.usuarioRepository.Delete(_usuario);
-
+                return usuarioRepository.Delete(_usuario);
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel usuario)
@@ -148,7 +174,14 @@ namespace CRM.Application
 
         public bool Post(UsuarioViewModel viewModel)
         {
-            throw new NotImplementedException();
+            CreateUsuarioViewModel vm = new CreateUsuarioViewModel()
+            {
+                Email = viewModel.Email,
+                Nome = viewModel.Nome
+            };
+
+            return Post(vm);
+            //throw new NotImplementedException();
         }
     }
 }

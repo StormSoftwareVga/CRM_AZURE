@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRM.Domain
 {
@@ -11,5 +8,8 @@ namespace CRM.Domain
         IEnumerable<Pessoa> GetAll();
 
         public Pessoa GetById(Guid id);
+
+        Pessoa GetByDocument(string documento);
+
     }
 }

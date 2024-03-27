@@ -76,62 +76,93 @@ namespace CRM.Application
 
         public bool Post(PessoaViewModel viewModel)
         {
-       
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
-
-            var _pessoa = mapper.Map<Pessoa>(viewModel);
-
-            var pessoaJaExiste = this.pessoaRepository.Find(x => x.Documento.Replace(".", "").Replace("-", "").Replace("/", "") == viewModel.Documento.Replace(".", "").Replace("-", "").Replace("/", ""));
-            if (pessoaJaExiste == null)
+            CreatePessoaViewModel vm = new CreatePessoaViewModel()
             {
-                this.pessoaRepository.Create(_pessoa);
+                Documento = viewModel.Documento,
+                Email = viewModel.Email,
+                Nome = viewModel.Nome,
+                Telefone = viewModel.Telefone,
+                Tipo = viewModel.Tipo,
+                DocumentoTipo = viewModel.DocumentoTipo
+            };
 
-                return true;
-            }
-
-            return false;
+            return Post(vm);
         }
 
         public bool Post(CreatePessoaViewModel viewModel)
         {
-           Validator.ValidateObject(viewModel, new ValidationContext(viewModel));
+            try
+            {
+                Log.Information("Post");
+                Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
-            if (null == this.pessoaRepository.Find(x => x.Documento.Replace(".", "").Replace("-", "").Replace("/", "") == viewModel.Documento.Replace(".", "").Replace("-", "").Replace("/", "")))
-                return controladorPessoaService.CadastrarNovoLead(mapper.Map<Pessoa>(viewModel)).Result;
-            
-            return false;
+                var _pessoa = mapper.Map<Pessoa>(viewModel);
+
+                var pessoaJaExiste = pessoaRepository.GetByDocument(viewModel.Documento);
+                if (pessoaJaExiste == null)
+                {
+                    pessoaRepository.Create(_pessoa);
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(PessoaViewModel viewModel)
         {
-            if (viewModel.Id == Guid.Empty)
-                throw new Exception("ID da pessoa é inválido!");
+            try
+            {
+                Log.Information("Put");
+                if (viewModel.Id == Guid.Empty)
+                    throw new Exception("ID da pessoa é inválido!");
 
-            Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == viewModel.Id && !x.IsDeleted);
+                Pessoa _pessoa = pessoaRepository.GetById(viewModel.Id);
 
-            if (null == _pessoa)
-                throw new Exception("Pessoa não encontrada");
+                if (null == _pessoa)
+                    throw new Exception("Pessoa não encontrada");
 
-            _pessoa = mapper.Map<Pessoa>(viewModel);
+                _pessoa = mapper.Map<Pessoa>(viewModel);
 
-            _pessoa.DataAlteracao = DateTime.Now;
+                _pessoa.DataAlteracao = DateTime.Now;
 
-            this.pessoaRepository.Update(_pessoa);
+                pessoaRepository.Update(_pessoa);
 
-            return true;
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID da pessoa é inválido!");
+            try
+            {
+                Log.Information("Delete");
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID da pessoa é inválido!");
 
-            Pessoa _pessoa = this.pessoaRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                Pessoa _pessoa = pessoaRepository.GetById(ID);
 
-            if (null == _pessoa)
-                throw new Exception("Pessoa não encontrada");
+                if (null == _pessoa)
+                    throw new Exception("Pessoa não encontrada");
 
-            return this.pessoaRepository.Delete(_pessoa);
+                return pessoaRepository.Delete(_pessoa);
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
     }
 }

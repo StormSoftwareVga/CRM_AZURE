@@ -7,6 +7,7 @@ namespace CRM.Domain
     {
         IEnumerable<Usuario> GetAll();
         public Usuario GetById(Guid id);
+        Usuario GetByEmail(string email);
 
     }
 }

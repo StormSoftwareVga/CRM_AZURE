@@ -35,9 +35,24 @@ namespace CRM.Data.Repositories
         {
             try
             {
-                return (from pessoaEndereco in _context.Set<PessoaEndereco>().AsQueryable()
-                        where pessoaEndereco.IsDeleted == false && id == pessoaEndereco.Id
-                        select pessoaEndereco).FirstOrDefault();
+                return (from pessoaEnderecos in _context.Set<PessoaEndereco>().AsQueryable()
+                        where pessoaEnderecos.IsDeleted == false && id == pessoaEnderecos.Id
+                        select pessoaEnderecos).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public PessoaEndereco GetByEndereco(string cep, string logradouro, string numero)
+        {
+            try
+            {
+                return (from pessoaEnderecos in _context.Set<PessoaEndereco>().AsQueryable()
+                        where pessoaEnderecos.IsDeleted == false && cep == pessoaEnderecos.CEP && logradouro == pessoaEnderecos.Logradouro && numero == pessoaEnderecos.Numero
+                        select pessoaEnderecos).FirstOrDefault();
             }
             catch (Exception ex)
             {

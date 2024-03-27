@@ -81,6 +81,36 @@
             <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
             <returns>Obtém uma pessoa com base no ID passado no sistema</returns>
         </member>
+        <member name="M:CRM.Controllers.PessoaController.Post(CRM.Application.ViewModels.Pessoa.CreatePessoaViewModel)">
+            <summary>
+            Insere uma pessoa com base nos dados passados no json
+            </summary>
+            <remarks>
+            Insere uma pessoa com base nos dados passados no json
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <returns>Insere uma pessoa com base nos dados passados no json</returns>
+        </member>
+        <member name="M:CRM.Controllers.PessoaController.Put(CRM.Application.ViewModels.Pessoa.PessoaViewModel)">
+            <summary>
+            Edita uma pessoa com base nos dados passados no json
+            </summary>
+            <remarks>
+            Edita uma pessoa com base nos dados passados no json
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <returns>Edita uma pessoa com base nos dados passados no json</returns>
+        </member>
+        <member name="M:CRM.Controllers.PessoaController.Delete(System.String)">
+            <summary>
+            Deleta uma pessoa com base nos dados passados no json
+            </summary>
+            <remarks>
+            Deleta uma pessoa com base nos dados passados no json
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <returns>Deleta uma pessoa com base nos dados passados no json</returns>
+        </member>
         <member name="P:CRM.Startup.Configuration">
             <summary>
             Configuration
@@ -129,6 +159,66 @@
             <param name="page">Page</param>
             <param name="pageSize">Pagesize</param>
             <returns>Obtém um usuário com base no ID passado no sistema</returns>
+        </member>
+        <member name="M:ApiSpa.Controllers.UsuarioController.Post(CRM.Application.ViewModels.User.CreateUsuarioViewModel)">
+            <summary>
+            Insere um usuário com base no ID passado no sistema
+            </summary>
+            <remarks>
+            Insere um usuário com base no ID passado no sistema
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Insere um usuário com base no ID passado no sistema</returns>
+        </member>
+        <member name="M:ApiSpa.Controllers.UsuarioController.Autenticar(CRM.Application.UserAuthenticateRequestViewModel)">
+            <summary>
+            Gera um token para autenticação
+            </summary>
+            <remarks>
+            Gera um token para autenticação
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Gera um token para autenticação</returns>
+        </member>
+        <member name="M:ApiSpa.Controllers.UsuarioController.Put(CRM.Application.ViewModels.User.UsuarioViewModel)">
+            <summary>
+            Edita um usuário com base no ID passado no sistema
+            </summary>
+            <remarks>
+            Edita um usuário com base no ID passado no sistema
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Edita um usuário com base no ID passado no sistema</returns>
+        </member>
+        <member name="M:ApiSpa.Controllers.UsuarioController.Delete">
+            <summary>
+            Deleta o usuário logado
+            </summary>
+            <remarks>
+            Deleta o usuário logado
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Deleta o usuário logado</returns>
+        </member>
+        <member name="M:ApiSpa.Controllers.UsuarioController.Delete(System.String)">
+            <summary>
+            Deleta um usuário com base no ID passado no sistema
+            </summary>
+            <remarks>
+            Deleta um usuário com base no ID passado no sistema
+            </remarks>
+            <response code="200">Dados obtidos com sucesso.</response><response code="400">A requisição foi malformada, omitindo atributos obrigatórios, seja no payload ou através de atributos na URL</response><response code="401">Cabeçalho de autenticação ausente/inválido ou token inválido</response><response code="403">O token tem escopo incorreto ou uma política de segurança foi violada</response><response code="404">O recurso solicitado não existe ou não foi implementado</response><response code="405">O consumidor tentou acessar o recurso com um método não suportado</response><response code="406">A solicitação continha um cabeçalho Accept diferente dos tipos de mídia permitidos ou um conjunto de caracteres diferente de UTF-8</response><response code="422">A sintaxe da requisição esta correta, mas não foi possível processar as instruções presentes.</response><response code="423">Locked</response><response code="500">Ocorreu um erro no gateway da API ou no microsserviço</response><response code="504">GATEWAY TIMEOUT - A requisição não foi atendida dentro do tempo limite estabelecido</response><response code="default">Erro inesperado.</response>
+            <param name="page">Page</param>
+            <param name="pageSize">Pagesize</param>
+            <returns>Deleta um usuário com base no ID passado no sistema</returns>
         </member>
     </members>
 </doc>

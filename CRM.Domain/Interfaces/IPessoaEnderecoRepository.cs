@@ -10,5 +10,7 @@ namespace CRM.Domain.Interfaces
     {
         IEnumerable<PessoaEndereco> GetAll();
         public PessoaEndereco GetById(Guid id);
+        PessoaEndereco GetByEndereco(string cep, string logradouro, string numero);
+
     }
 }

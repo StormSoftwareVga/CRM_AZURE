@@ -28,16 +28,26 @@ namespace CRM.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID do PessoaEndereco é inválido!");
+            try
+            {
+                Log.Information("Delete");
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID do PessoaEndereco é inválido!");
 
-            PessoaEndereco _pessoaEndereco = this.pessoaEnderecoRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                PessoaEndereco _pessoaEndereco = pessoaEnderecoRepository.GetById(ID);
 
-            if (null == _pessoaEndereco)
-                throw new Exception("PessoaEndereco não encontrado");
+                if (null == _pessoaEndereco)
+                    throw new Exception("PessoaEndereco não encontrado");
 
-            return this.pessoaEnderecoRepository.Delete(_pessoaEndereco);
+                return pessoaEnderecoRepository.Delete(_pessoaEndereco);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
+        
 
 
 
@@ -88,38 +98,56 @@ namespace CRM.Application.Services
 
         public bool Post(PessoaEnderecoViewModel viewModel)
         {
-            Validator.ValidateObject(pessoaEnderecoRepository, new ValidationContext(viewModel), true);
-
-            var _pessoaEndereco = mapper.Map<PessoaEndereco>(viewModel);
-
-            var PessoaEnderecoJaExiste = this.pessoaEnderecoRepository.Find(x => x.CEP == viewModel.CEP && x.Logradouro == viewModel.Logradouro && x.Numero == viewModel.Numero);
-            if (PessoaEnderecoJaExiste == null)
+            try
             {
-                this.pessoaEnderecoRepository.Create(_pessoaEndereco);
+                Log.Information("Post");
+                Validator.ValidateObject(pessoaEnderecoRepository, new ValidationContext(viewModel), true);
 
-                return true;
+                var _pessoaEndereco = mapper.Map<PessoaEndereco>(viewModel);
+
+                var PessoaEnderecoJaExiste = pessoaEnderecoRepository.GetByEndereco(viewModel.CEP, viewModel.Logradouro, viewModel.Numero);
+                if (PessoaEnderecoJaExiste == null)
+                {
+                    pessoaEnderecoRepository.Create(_pessoaEndereco);
+
+                    return true;
+                }
+
+                return false;
             }
-
-            return false;
+            catch(Exception ex) 
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(PessoaEnderecoViewModel viewModel)
         {
-            if (viewModel.Id == Guid.Empty)
-                throw new Exception("ID do PessoaEndereco é inválido!");
+            try
+            {
+                Log.Information("Put");
+                if (viewModel.Id == Guid.Empty)
+                    throw new Exception("ID do PessoaEndereco é inválido!");
 
-            PessoaEndereco _pessoaEndereco = this.pessoaEnderecoRepository.Find(x => x.Id == viewModel.Id && !x.IsDeleted);
+                PessoaEndereco _pessoaEndereco = pessoaEnderecoRepository.GetById(viewModel.Id);
 
-            if (null == _pessoaEndereco)
-                throw new Exception("PessoaEndereco não encontrado");
+                if (null == _pessoaEndereco)
+                    throw new Exception("PessoaEndereco não encontrado");
 
-            _pessoaEndereco = mapper.Map<PessoaEndereco>(viewModel);
+                _pessoaEndereco = mapper.Map<PessoaEndereco>(viewModel);
 
-            _pessoaEndereco.DataAlteracao = DateTime.Now;
+                _pessoaEndereco.DataAlteracao = DateTime.Now;
 
-            this.pessoaEnderecoRepository.Update(_pessoaEndereco);
+                pessoaEnderecoRepository.Update(_pessoaEndereco);
 
-            return true;
+                return true;
+            }
+            catch(Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
     }
 }

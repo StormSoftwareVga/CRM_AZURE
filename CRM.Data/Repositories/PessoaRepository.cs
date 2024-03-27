@@ -43,5 +43,22 @@ namespace CRM.Data
                 throw ex;
             }
         }
+
+        public Pessoa GetByDocument(string documento)
+        {
+            try
+            {
+                documento = documento.Replace(".", "").Replace("-", "").Replace("/", "");
+
+                return (from pessoas in _context.Set<Pessoa>().AsQueryable()
+                        where pessoas.IsDeleted == false && pessoas.Documento == documento
+                        select pessoas).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
     }
 }
