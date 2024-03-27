@@ -44,6 +44,23 @@ namespace CRM.Data.Repositories
                 throw ex;
             }
         }
+        public Municipio GetByName(string nome)
+        {
+            try
+            {
+                return (from municipios in _context.Set<Municipio>().AsQueryable()
+                        where municipios.Nome == nome
+                        select municipios).FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex);
+                throw ex;
+
+            }
+        }
         public Municipio? GetData(string municipioNome, string estado)
         {
             try

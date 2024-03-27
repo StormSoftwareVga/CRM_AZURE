@@ -29,15 +29,25 @@ namespace CRM.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID do Pais é inválido!");
+            try
+            {
+                Log.Information("Delete");
 
-            Pais _pais = this.paisRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID do País é inválido!");
 
-            if (null == _pais)
-                throw new Exception("Pais não encontrado");
+                Pais _pais = paisRepository.GetById(ID);
 
-            return this.paisRepository.Delete(_pais);
+                if (null == _pais)
+                    throw new Exception("País não encontrado");
+
+                return paisRepository.Delete(_pais);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public IEnumerable<PaisViewModel> GetAll()
@@ -90,38 +100,58 @@ namespace CRM.Application.Services
 
         public bool Post(PaisViewModel viewModel)
         {
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
-
-            var _pais = mapper.Map<Pais>(viewModel);
-
-            var PaisJaExiste = this.paisRepository.Find(x => x.Nome.ToLower() == viewModel.Nome.ToLower());
-            if (PaisJaExiste == null)
+            try
             {
-                this.paisRepository.Create(_pais);
+                Log.Information("Post");
+                Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
-                return true;
+                var _pais = mapper.Map<Pais>(viewModel);
+
+
+                var paisJaExiste = paisRepository.GetByName(viewModel.Nome);
+                if (paisJaExiste == null)
+                {
+                    paisRepository.Create(_pais);
+
+                    return true;
+                }
+
+                return false;
+
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(PaisViewModel viewModel)
         {
-            if (viewModel.Id == Guid.Empty)
-                throw new Exception("ID do Pais é inválido!");
+            try
+            {
+                Log.Information("Put");
+                if (viewModel.Id == Guid.Empty)
+                    throw new Exception("ID do País é inválido!");
 
-            Pais _pais = this.paisRepository.Find(x => x.Id == viewModel.Id && !x.IsDeleted);
+                Pais _pais = paisRepository.GetById(viewModel.Id);
 
-            if (null == _pais)
-                throw new Exception("Pais não encontrado");
+                if (_pais == null)
+                    throw new Exception("País não encontrado");
 
-            _pais = mapper.Map<Pais>(viewModel);
+                _pais = mapper.Map<Pais>(viewModel);
 
-            _pais.DataAlteracao = DateTime.Now;
+                _pais.DataAlteracao = DateTime.Now;
 
-            this.paisRepository.Update(_pais);
+                paisRepository.Update(_pais);
 
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
     }
 }

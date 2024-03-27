@@ -49,25 +49,55 @@ namespace CRM.Controllers
 
             return Ok(result);
         }
-        [HttpPost]
 
+        /// <summary>
+        /// Insere um estado com base nos dados passados no json
+        /// </summary>
+        /// <remarks>
+        /// Insere um estado com base nos dados passados no json
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Insere um estados com base nos dados passado no json</returns>]
+        [HttpPost, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<EstadoViewModel>), 200)]
         public IActionResult Post(EstadoViewModel estadoViewModel)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(this.estadoService.Post(estadoViewModel));
+            var result = estadoService.Post(estadoViewModel);
+            return Ok(result);
         }
-        [HttpPut]
+        /// <summary>
+        /// Edita um estado com base no ID
+        /// </summary>
+        /// <remarks>
+        /// Edita um estado com base no ID
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Edita um estado com base no ID</returns>]
+        [HttpPut, AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<EstadoViewModel>), 200)]
         public IActionResult Put(EstadoViewModel estadoViewModel)
         {
-            return Ok(this.estadoService.Put(estadoViewModel));
+            var result = estadoService.Put(estadoViewModel);
+            return Ok(result);
         }
-        [HttpDelete("{id}")]
 
+        /// <summary>
+        /// Deleta um estado com base no ID
+        /// </summary>
+        /// <remarks>
+        /// Deleta um estado com base no ID
+        /// </remarks>
+        /// <include file='Response.xml' path="ResponseGroup[@name='resp']/*"/>
+        /// <returns>Deleta um estado com base ID</returns>]
+        [HttpDelete("{id}"), AllowAnonymous]
+        [Produces("application/json"), ProducesResponseType(typeof(OKResultSearch<EstadoViewModel>), 200)]
         public IActionResult Delete(string id)
         {
-            return Ok(this.estadoService.Delete(id));
+            var result = estadoService.Delete(id);
+            return Ok(result);
         }
     }
 }

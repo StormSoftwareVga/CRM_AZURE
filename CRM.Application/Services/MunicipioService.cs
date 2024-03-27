@@ -2,7 +2,6 @@
 using CRM.Application.Interfaces;
 using CRM.Application.ViewModels;
 using CRM.Application.ViewModels.Municipio;
-using CRM.Application.ViewModels.Pessoa;
 using CRM.Domain;
 using CRM.Domain.Core;
 using CRM.Domain.Core.CrmException;
@@ -10,9 +9,7 @@ using CRM.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CRM.Application.Services
 {
@@ -29,15 +26,25 @@ namespace CRM.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID do Municipio é inválido!");
+            try
+            {
+                Log.Information("Delete");
 
-            Municipio _municipio = this.municipioRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID do Município é inválido!");
 
-            if (null == _municipio)
-                throw new Exception("Municipio não encontrado");
+                Municipio _municipio = municipioRepository.GetById(ID);
 
-            return this.municipioRepository.Delete(_municipio);
+                if (null == _municipio)
+                    throw new Exception("Município não encontrado");
+
+                return municipioRepository.Delete(_municipio);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public IEnumerable<MunicipioViewModel> GetAll()
@@ -89,38 +96,60 @@ namespace CRM.Application.Services
 
         public bool Post(MunicipioViewModel viewModel)
         {
-            Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
-
-            var _municipio = mapper.Map<Municipio>(viewModel);
-
-            var MunicipioJaExiste = this.municipioRepository.Find(x => x.Nome.ToLower() == viewModel.Nome.ToLower());
-            if (MunicipioJaExiste == null)
+            try
             {
-                this.municipioRepository.Create(_municipio);
+                Log.Information("Post");
+                Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
-                return true;
+                var _municipio = mapper.Map<Municipio>(viewModel);
+
+
+                var muncipioJaExiste = municipioRepository.GetByName(viewModel.Nome);
+                if (muncipioJaExiste == null)
+                {
+                    municipioRepository.Create(_municipio);
+
+                    return true;
+                }
+
+                return false;
+
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(MunicipioViewModel viewModel)
         {
-            if (viewModel.Id == Guid.Empty)
-                throw new Exception("ID do Municipio é inválido!");
+            try
+            { 
 
-            Municipio _municipio = this.municipioRepository.Find(x => x.Id == viewModel.Id && !x.IsDeleted);
+                Log.Information("Put");
+                if (viewModel.Id == Guid.Empty)
+                    throw new Exception("ID do Município é inválido!");
 
-            if (null == _municipio)
-                throw new Exception("Municipio não encontrado");
+                Municipio _municipio = municipioRepository.GetById(viewModel.Id);
 
-            _municipio = mapper.Map<Municipio>(viewModel);
+                if (_municipio == null)
+                    throw new Exception("Município não encontrado");
 
-            _municipio.DataAlteracao = DateTime.Now;
+                _municipio = mapper.Map<Municipio>(viewModel);
 
-            this.municipioRepository.Update(_municipio);
+                _municipio.DataAlteracao = DateTime.Now;
 
-            return true;
-        }
+                municipioRepository.Update(_municipio);
+
+                return true;
+
+            }
+            catch (Exception ex) 
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
+}
     }
 }
