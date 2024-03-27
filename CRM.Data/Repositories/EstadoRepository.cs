@@ -53,9 +53,8 @@ namespace CRM.Data.Repositories
             try
             {
 
-
                return (from estados in _context.Set<Estado>().AsQueryable()
-                             where estados.Nome == nome
+                             where estados.Nome == nome && estados.IsDeleted == false
                              select estados).FirstOrDefault();
 
             }

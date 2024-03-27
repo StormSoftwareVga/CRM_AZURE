@@ -28,15 +28,25 @@ namespace CRM.Application.Services
 
         public bool Delete(string id)
         {
-            if (!Guid.TryParse(id, out Guid ID))
-                throw new Exception("ID do Regiao é inválido!");
+            try
+            {
+                Log.Information("Delete");
 
-            Regiao _regiao = this.regiaoRepository.Find(x => x.Id == ID && !x.IsDeleted);
+                if (!Guid.TryParse(id, out Guid ID))
+                    throw new Exception("ID da Região é inválido!");
 
-            if (null == _regiao)
-                throw new Exception("Regiao não encontrado");
+                Regiao _regiao = regiaoRepository.GetById(ID);
 
-            return this.regiaoRepository.Delete(_regiao);
+                if (null == _regiao)
+                    throw new Exception("Região não encontrado");
+
+                return regiaoRepository.Delete(_regiao);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public IEnumerable<RegiaoViewModel> GetAll()
@@ -88,19 +98,30 @@ namespace CRM.Application.Services
 
         public bool Post(RegiaoViewModel viewModel)
         {
-            Validator.ValidateObject(regiaoRepository, new ValidationContext(viewModel), true);
-
-            var _regiao = mapper.Map<Regiao>(viewModel);
-
-            var RegiaoJaExiste = this.regiaoRepository.Find(x => x.Nome.ToLower() == viewModel.Nome.ToLower());
-            if (RegiaoJaExiste == null)
+            try
             {
-                this.regiaoRepository.Create(_regiao);
+                Log.Information("Post");
+                Validator.ValidateObject(viewModel, new ValidationContext(viewModel), true);
 
-                return true;
+                var _regiao = mapper.Map<Regiao>(viewModel);
+
+
+                var regiaoJaExiste = regiaoRepository.GetByName(viewModel.Nome);
+                if (regiaoJaExiste == null)
+                {
+                    regiaoRepository.Create(_regiao);
+
+                    return true;
+                }
+
+                return false;
+
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                Log.Error(ex, ex.Message);
+                throw ex;
+            }
         }
 
         public bool Put(RegiaoViewModel viewModel)

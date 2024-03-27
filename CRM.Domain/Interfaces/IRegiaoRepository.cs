@@ -12,6 +12,8 @@ namespace CRM.Domain.Interfaces
 
         IEnumerable<Regiao> GetAll();
 
-       public Regiao GetById(Guid id);
+        Regiao GetById(Guid id);
+
+        Regiao GetByName(string nome);
     }
 }

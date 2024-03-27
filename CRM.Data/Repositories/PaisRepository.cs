@@ -49,12 +49,12 @@ namespace CRM.Data
 
         }
 
-        public Pais? GetByName(string name)
+        public Pais GetByName(string nome)
         {
             try
             {
                 return (from pais in _context.Set<Pais>().AsQueryable()
-                        where pais.IsDeleted == false && pais.Nome == name
+                        where pais.IsDeleted == false && pais.Nome == nome
                         select pais).FirstOrDefault();
             }
             catch (Exception ex)

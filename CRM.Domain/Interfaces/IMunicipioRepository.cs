@@ -12,6 +12,10 @@ namespace CRM.Domain.Interfaces
 
         Municipio GetById(Guid id);
 
+        Municipio GetByName(string nome);
+
         Municipio? GetData(string municipioId, string estado);
+
+       
     }
 }

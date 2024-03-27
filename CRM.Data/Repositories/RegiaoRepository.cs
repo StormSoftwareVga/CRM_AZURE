@@ -33,7 +33,7 @@ namespace CRM.Data.Repositories
             }
         }
 
-       
+
 
         public Regiao GetById(Guid id)
         {
@@ -43,6 +43,21 @@ namespace CRM.Data.Repositories
                         where regiao.IsDeleted == false && id == regiao.Id
                         select regiao).FirstOrDefault();
 
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw ex;
+            }
+        }
+
+        public Regiao GetByName(string nome)
+        {
+            try
+            {
+                return (from regiao in _context.Set<Regiao>().AsQueryable()
+                        where regiao.Nome == nome && regiao.IsDeleted == false
+                        select regiao).FirstOrDefault();
             }
             catch(Exception ex) 
             {
